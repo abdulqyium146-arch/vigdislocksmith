@@ -565,3 +565,166 @@ export function getAggregateOfferSchema() {
     })),
   };
 }
+
+// ─── PAGE-TYPE SCHEMAS ───────────────────────────────────────────────────────
+
+export function getAboutPageSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "@id": `${BASE}/about#webpage`,
+    url: `${BASE}/about`,
+    name: `About ${BUSINESS.name}`,
+    description: `Learn about ${BUSINESS.name} — Mayfair's most trusted locksmith since ${BUSINESS.established}. DBS checked, fully insured, 5★ rated.`,
+    inLanguage: "en-GB",
+    isPartOf: { "@id": `${BASE}/#website` },
+    about: { "@id": `${BASE}/#business` },
+    publisher: { "@id": `${BASE}/#business` },
+    breadcrumb: { "@id": `${BASE}/about#breadcrumb` },
+  };
+}
+
+export function getContactPageSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "@id": `${BASE}/contact#webpage`,
+    url: `${BASE}/contact`,
+    name: `Contact ${BUSINESS.name}`,
+    description: "Contact Vigdis Locksmith London for 24/7 emergency locksmith services in Mayfair. Call, WhatsApp, or send a message.",
+    inLanguage: "en-GB",
+    isPartOf: { "@id": `${BASE}/#website` },
+    about: { "@id": `${BASE}/#business` },
+    publisher: { "@id": `${BASE}/#business` },
+    mainEntity: {
+      "@id": `${BASE}/#business`,
+      "@type": "Locksmith",
+      name: BUSINESS.name,
+      telephone: BUSINESS.phone,
+      email: BUSINESS.email,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: BUSINESS.address.street,
+        addressLocality: BUSINESS.address.city,
+        postalCode: BUSINESS.address.postcode,
+        addressCountry: "GB",
+      },
+    },
+  };
+}
+
+export function getCollectionPageSchema(
+  name: string,
+  description: string,
+  url: string,
+  items: { name: string; url: string }[]
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${url}#webpage`,
+    url,
+    name,
+    description,
+    inLanguage: "en-GB",
+    isPartOf: { "@id": `${BASE}/#website` },
+    about: { "@id": `${BASE}/#business` },
+    publisher: { "@id": `${BASE}/#business` },
+    hasPart: items.map((item) => ({
+      "@type": "WebPage",
+      name: item.name,
+      url: item.url,
+    })),
+  };
+}
+
+export function getPersonSchema(
+  name: string,
+  role: string,
+  description: string,
+  worksFor?: string
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name,
+    jobTitle: role,
+    description,
+    worksFor: worksFor
+      ? { "@id": `${BASE}/#business` }
+      : { "@id": `${BASE}/#business` },
+    affiliation: { "@id": `${BASE}/#business` },
+    knowsAbout: [
+      "Locksmith services",
+      "Lock repair",
+      "Emergency locksmith",
+      "Security systems",
+      "Mayfair London",
+    ],
+  };
+}
+
+// ─── DATASET / KNOWLEDGE GRAPH SCHEMA ───────────────────────────────────────
+
+export function getDatasetSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "@id": `${BASE}/#dataset`,
+    name: "Vigdis Locksmith London — Entity Knowledge Graph",
+    description:
+      "Structured entity data about Vigdis Locksmith London, its services, service areas, and semantic relationships. Optimised for AI retrieval, LLM citation, and Knowledge Graph integration.",
+    url: BASE,
+    creator: { "@id": `${BASE}/#business` },
+    publisher: { "@id": `${BASE}/#business` },
+    license: "https://creativecommons.org/licenses/by/4.0/",
+    inLanguage: "en-GB",
+    keywords: [
+      "locksmith mayfair",
+      "emergency locksmith london",
+      "locksmith westminster",
+      "lock repair mayfair",
+      "lock replacement london",
+      "24 hour locksmith",
+      "Vigdis Locksmith London",
+    ],
+    distribution: [
+      {
+        "@type": "DataDownload",
+        encodingFormat: "text/plain",
+        contentUrl: `${BASE}/llms.txt`,
+        name: "LLM Index",
+        description: "Structured business entity data for LLM retrieval systems",
+      },
+      {
+        "@type": "DataDownload",
+        encodingFormat: "text/plain",
+        contentUrl: `${BASE}/llms-full.txt`,
+        name: "LLM Full Context",
+        description: "Complete business context for AI retrieval and citation",
+      },
+      {
+        "@type": "DataDownload",
+        encodingFormat: "text/plain",
+        contentUrl: `${BASE}/ai.txt`,
+        name: "AI Entity Definitions",
+        description: "Structured entity definitions for AI search engines",
+      },
+      {
+        "@type": "DataDownload",
+        encodingFormat: "application/ld+json",
+        contentUrl: `${BASE}/knowledge-graph.jsonld`,
+        name: "Knowledge Graph",
+        description: "Complete JSON-LD entity graph with semantic relationships",
+      },
+    ],
+    about: [
+      { "@type": "Place", name: "Mayfair, London" },
+      { "@type": "Place", name: "Westminster, London" },
+      { "@type": "Place", name: "Central London" },
+      { "@type": "Service", name: "Emergency Locksmith" },
+      { "@type": "Service", name: "Lock Repair" },
+      { "@type": "Service", name: "Lock Replacement" },
+    ],
+  };
+}

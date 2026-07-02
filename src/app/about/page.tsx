@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Phone, Shield, Award, Clock, Users, CheckCircle, ArrowRight } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
-import { getBreadcrumbSchema } from "@/lib/schema";
+import { getBreadcrumbSchema, getAboutPageSchema, getPersonSchema } from "@/lib/schema";
 import SchemaScript from "@/components/SchemaScript";
 
 export const metadata: Metadata = {
@@ -37,6 +37,8 @@ export default function AboutPage() {
   return (
     <>
       <SchemaScript schema={getBreadcrumbSchema(breadcrumbs)} />
+      <SchemaScript schema={getAboutPageSchema()} />
+      <SchemaScript schema={getPersonSchema("Vigdis Team", "Locksmith", "Expert locksmith team at Vigdis Locksmith London, serving Mayfair and Central London since 2009.")} />
 
       <section className="bg-slate-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Phone, ArrowRight } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
-import { getBreadcrumbSchema } from "@/lib/schema";
+import { getBreadcrumbSchema, getCollectionPageSchema, getServiceItemListSchema } from "@/lib/schema";
 import SchemaScript from "@/components/SchemaScript";
 
 export const metadata: Metadata = {
@@ -88,6 +88,8 @@ export default function ServicesPage() {
   return (
     <>
       <SchemaScript schema={getBreadcrumbSchema(breadcrumbs)} />
+      <SchemaScript schema={getCollectionPageSchema("Locksmith Services Mayfair", "Full range of professional locksmith services in Mayfair and Central London. Emergency lockouts, lock repair, replacement & key cutting. Available 24/7.", `${BUSINESS.url}/services`, serviceDetails.map(s => ({ name: s.name, url: `${BUSINESS.url}/services/${s.slug}` })))} />
+      <SchemaScript schema={getServiceItemListSchema()} />
 
       {/* Hero */}
       <section className="bg-slate-900 text-white py-16">

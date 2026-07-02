@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Phone, CheckCircle, ArrowRight } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
-import { getBreadcrumbSchema, getServiceSchema } from "@/lib/schema";
+import { getBreadcrumbSchema, getServiceSchema, getSpeakableSchema, getWebPageSchema } from "@/lib/schema";
 import SchemaScript from "@/components/SchemaScript";
 
 export const metadata: Metadata = {
@@ -23,6 +23,8 @@ export default function ResidentialLocksmithPage() {
     <>
       <SchemaScript schema={getBreadcrumbSchema(breadcrumbs)} />
       <SchemaScript schema={getServiceSchema("Residential Locksmith Mayfair", "Comprehensive home locksmith services in Mayfair including lock changes, upgrades, and burglary repairs.", `${BUSINESS.url}/services/residential-locksmith`)} />
+      <SchemaScript schema={getSpeakableSchema(`${BUSINESS.url}/services/residential-locksmith`)} />
+      <SchemaScript schema={getWebPageSchema(`${BUSINESS.url}/services/residential-locksmith`, "Residential Locksmith Mayfair — Home Security Experts", "Comprehensive residential locksmith services in Mayfair. Lock changes, upgrades, burglary repair, security surveys. Call 020 3670 6551.")} />
 
       <section className="bg-slate-900 text-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

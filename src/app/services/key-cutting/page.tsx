@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Phone, CheckCircle, ArrowRight } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
-import { getBreadcrumbSchema, getServiceSchema } from "@/lib/schema";
+import { getBreadcrumbSchema, getServiceSchema, getSpeakableSchema, getWebPageSchema } from "@/lib/schema";
 import SchemaScript from "@/components/SchemaScript";
 
 export const metadata: Metadata = {
@@ -23,6 +23,8 @@ export default function KeyCuttingPage() {
     <>
       <SchemaScript schema={getBreadcrumbSchema(breadcrumbs)} />
       <SchemaScript schema={getServiceSchema("Key Cutting Mayfair", "Professional key cutting service in Mayfair for all key types. Fast and accurate.", `${BUSINESS.url}/services/key-cutting`)} />
+      <SchemaScript schema={getSpeakableSchema(`${BUSINESS.url}/services/key-cutting`)} />
+      <SchemaScript schema={getWebPageSchema(`${BUSINESS.url}/services/key-cutting`, "Key Cutting Mayfair — All Key Types Cut Precisely", "Professional key cutting in Mayfair and Central London. Yale, Mortice, Chubb, security keys and more. Fast, accurate cutting. Call 020 3670 6551.")} />
 
       <section className="bg-slate-900 text-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

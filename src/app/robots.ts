@@ -12,6 +12,7 @@ export default function robots(): MetadataRoute.Robots {
           "/ai.txt",
           "/humans.txt",
           "/sitemap.xml",
+          "/site.webmanifest",
         ],
         disallow: ["/api/", "/_next/", "/static/"],
       },

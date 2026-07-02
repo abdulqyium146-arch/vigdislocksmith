@@ -1,0 +1,25 @@
+{
+  "name": "Vigdis Locksmith London",
+  "short_name": "Vigdis Locksmith",
+  "description": "24/7 emergency locksmith in Mayfair and Central London. 15-30 min response, no call-out fee.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#dc2626",
+  "lang": "en-GB",
+  "categories": ["business", "utilities"],
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

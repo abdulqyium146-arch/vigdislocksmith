@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Phone, MapPin, ArrowRight } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
-import { getBreadcrumbSchema } from "@/lib/schema";
+import { getBreadcrumbSchema, getAreaSchema } from "@/lib/schema";
 import SchemaScript from "@/components/SchemaScript";
 
 export const metadata: Metadata = {
@@ -21,6 +21,7 @@ export default function WestminsterPage() {
   return (
     <>
       <SchemaScript schema={getBreadcrumbSchema(breadcrumbs)} />
+      <SchemaScript schema={getAreaSchema("Westminster", ["SW1A", "SW1P", "SW1H"], 51.4994, -0.1360, `${BUSINESS.url}/service-areas/westminster`)} />
 
       <section className="bg-slate-900 text-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

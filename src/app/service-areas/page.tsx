@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Phone, MapPin, ArrowRight } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
-import { getBreadcrumbSchema } from "@/lib/schema";
+import { getBreadcrumbSchema, getCollectionPageSchema } from "@/lib/schema";
 import SchemaScript from "@/components/SchemaScript";
 
 export const metadata: Metadata = {
@@ -34,6 +34,7 @@ export default function ServiceAreasPage() {
   return (
     <>
       <SchemaScript schema={getBreadcrumbSchema(breadcrumbs)} />
+      <SchemaScript schema={getCollectionPageSchema("Locksmith Service Areas — Central London Coverage", "Vigdis Locksmith London covers Mayfair, Westminster, Belgravia, Knightsbridge, Soho, Marylebone, Chelsea, Kensington and all of Central London.", `${BUSINESS.url}/service-areas`, areaDetails.map(a => ({ name: `Locksmith in ${a.name}`, url: `${BUSINESS.url}/service-areas/${a.slug}` })))} />
 
       <section className="bg-slate-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

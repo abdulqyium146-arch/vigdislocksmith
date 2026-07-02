@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Phone, CheckCircle, ArrowRight } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
-import { getBreadcrumbSchema, getServiceSchema, getFAQSchema } from "@/lib/schema";
+import { getBreadcrumbSchema, getServiceSchema, getFAQSchema, getSpeakableSchema, getWebPageSchema } from "@/lib/schema";
 import SchemaScript from "@/components/SchemaScript";
 import FAQItem from "@/components/FAQItem";
 
@@ -43,6 +43,8 @@ export default function LockRepairPage() {
       <SchemaScript schema={getBreadcrumbSchema(breadcrumbs)} />
       <SchemaScript schema={getServiceSchema("Lock Repair Mayfair", "Expert lock repair service in Mayfair and Central London. All lock types, fast on-site service.", `${BUSINESS.url}/services/lock-repair`)} />
       <SchemaScript schema={getFAQSchema(faqs)} />
+      <SchemaScript schema={getSpeakableSchema(`${BUSINESS.url}/services/lock-repair`)} />
+      <SchemaScript schema={getWebPageSchema(`${BUSINESS.url}/services/lock-repair`, "Lock Repair Mayfair — Expert On-Site Service", "Professional lock repair in Mayfair and Central London. All lock types including Yale, Mortice, Euro Cylinder. Fast on-site repair. Call 020 3670 6551.")} />
 
       <section className="bg-slate-900 text-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

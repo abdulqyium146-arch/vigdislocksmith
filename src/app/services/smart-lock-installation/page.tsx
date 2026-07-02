@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Phone, CheckCircle, ArrowRight } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
-import { getBreadcrumbSchema, getServiceSchema } from "@/lib/schema";
+import { getBreadcrumbSchema, getServiceSchema, getSpeakableSchema, getWebPageSchema } from "@/lib/schema";
 import SchemaScript from "@/components/SchemaScript";
 
 export const metadata: Metadata = {
@@ -23,6 +23,8 @@ export default function SmartLockPage() {
     <>
       <SchemaScript schema={getBreadcrumbSchema(breadcrumbs)} />
       <SchemaScript schema={getServiceSchema("Smart Lock Installation Mayfair", "Professional smart lock and access control installation in Mayfair. Keyless, app-controlled, and biometric systems.", `${BUSINESS.url}/services/smart-lock-installation`)} />
+      <SchemaScript schema={getSpeakableSchema(`${BUSINESS.url}/services/smart-lock-installation`)} />
+      <SchemaScript schema={getWebPageSchema(`${BUSINESS.url}/services/smart-lock-installation`, "Smart Lock Installation Mayfair — App-Controlled Access", "Professional smart lock installation in Mayfair. Keyless entry, app-controlled, biometric. Leading brands fitted by certified locksmiths. Call 020 3670 6551.")} />
 
       <section className="bg-slate-900 text-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

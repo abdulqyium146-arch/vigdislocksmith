@@ -1,0 +1,495 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#"
+  },
+  "@graph": [
+
+    {
+      "@id": "https://vigdis.shop/#business",
+      "@type": ["LocalBusiness", "Locksmith", "Organization", "ProfessionalService"],
+      "name": "Vigdis Locksmith London",
+      "alternateName": ["Vigdis Locksmith", "Vigdis Locksmith Mayfair", "Locksmith Mayfair"],
+      "url": "https://vigdis.shop",
+      "telephone": "+44 20 3670 6551",
+      "email": "info@vigdis.shop",
+      "foundingDate": "2009",
+      "slogan": "Mayfair's Most Trusted Locksmith",
+      "description": "24/7 emergency locksmith in Mayfair and Central London since 2009. 5.0★, 247 reviews. 15-30 min response. No call-out fee.",
+      "priceRange": "££",
+      "currenciesAccepted": "GBP",
+      "paymentAccepted": "Cash, Credit Card, Debit Card",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "10-11 Park Place",
+        "addressLocality": "London",
+        "postalCode": "SW1A 1LP",
+        "addressRegion": "Greater London",
+        "addressCountry": "GB"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "51.5037",
+        "longitude": "-0.1420"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "247",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "openingHours": "Mo-Su 00:00-23:59",
+      "areaServed": [
+        { "@id": "https://vigdis.shop/#place-mayfair" },
+        { "@id": "https://vigdis.shop/#place-westminster" },
+        { "@id": "https://vigdis.shop/#place-belgravia" },
+        { "@id": "https://vigdis.shop/#place-knightsbridge" },
+        { "@id": "https://vigdis.shop/#place-soho" },
+        { "@id": "https://vigdis.shop/#place-marylebone" },
+        { "@id": "https://vigdis.shop/#place-chelsea" },
+        { "@id": "https://vigdis.shop/#place-kensington" },
+        { "@id": "https://vigdis.shop/#place-victoria" },
+        { "@id": "https://vigdis.shop/#place-paddington" },
+        { "@id": "https://vigdis.shop/#place-central-london" }
+      ],
+      "hasOfferCatalog": { "@id": "https://vigdis.shop/#catalog" },
+      "knowsAbout": [
+        "Lock repair", "Lock replacement", "Emergency locksmith",
+        "Key cutting", "Smart lock installation", "Residential security",
+        "Commercial security", "Euro cylinder locks", "Mortice locks",
+        "Yale locks", "Mul-T-Lock", "Abloy locks", "Non-destructive entry",
+        "Anti-snap locks", "BS3621 deadlocks", "Master key systems",
+        "Access control systems", "Burglary repair", "uPVC door locks",
+        "Rekeying", "British Standard locks", "High-security cylinders"
+      ],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+44 20 3670 6551",
+          "contactType": "emergency",
+          "availableLanguage": "English",
+          "areaServed": "GB"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+44 20 3670 6551",
+          "contactType": "customer service",
+          "availableLanguage": "English",
+          "areaServed": "GB"
+        }
+      ],
+      "sameAs": [
+        "https://www.google.com/maps/search/Vigdis+Locksmith+London+Mayfair"
+      ]
+    },
+
+    {
+      "@id": "https://vigdis.shop/#catalog",
+      "@type": "OfferCatalog",
+      "name": "Locksmith Services Mayfair",
+      "itemListElement": [
+        { "@id": "https://vigdis.shop/#service-emergency" },
+        { "@id": "https://vigdis.shop/#service-24hour" },
+        { "@id": "https://vigdis.shop/#service-lock-repair" },
+        { "@id": "https://vigdis.shop/#service-lock-replacement" },
+        { "@id": "https://vigdis.shop/#service-key-cutting" },
+        { "@id": "https://vigdis.shop/#service-residential" },
+        { "@id": "https://vigdis.shop/#service-commercial" },
+        { "@id": "https://vigdis.shop/#service-smart-lock" }
+      ]
+    },
+
+    {
+      "@id": "https://vigdis.shop/#service-emergency",
+      "@type": "Service",
+      "name": "Emergency Locksmith",
+      "description": "24/7 emergency locksmith service in Mayfair and Central London. 15-30 minute response time. No call-out fee. DBS checked technicians.",
+      "url": "https://vigdis.shop/services/emergency-locksmith",
+      "provider": { "@id": "https://vigdis.shop/#business" },
+      "availableChannel": { "@type": "ServiceChannel", "servicePhone": { "@type": "ContactPoint", "telephone": "+44 20 3670 6551" } },
+      "areaServed": [
+        { "@id": "https://vigdis.shop/#place-mayfair" },
+        { "@id": "https://vigdis.shop/#place-westminster" },
+        { "@id": "https://vigdis.shop/#place-central-london" }
+      ],
+      "potentialAction": { "@type": "ReserveAction", "target": "tel:+442036706551" },
+      "offers": { "@type": "Offer", "priceCurrency": "GBP", "availability": "https://schema.org/InStock" }
+    },
+
+    {
+      "@id": "https://vigdis.shop/#service-24hour",
+      "@type": "Service",
+      "name": "24 Hour Locksmith",
+      "description": "Round-the-clock locksmith service 365 days a year including all bank holidays and Christmas Day.",
+      "url": "https://vigdis.shop/services/24-hour-locksmith",
+      "provider": { "@id": "https://vigdis.shop/#business" },
+      "areaServed": { "@id": "https://vigdis.shop/#place-central-london" }
+    },
+
+    {
+      "@id": "https://vigdis.shop/#service-lock-repair",
+      "@type": "Service",
+      "name": "Lock Repair",
+      "description": "Expert repair of all lock types including Yale, Mortice, Euro Cylinder, Deadbolt, Chubb, and high-security locks.",
+      "url": "https://vigdis.shop/services/lock-repair",
+      "provider": { "@id": "https://vigdis.shop/#business" },
+      "areaServed": { "@id": "https://vigdis.shop/#place-central-london" }
+    },
+
+    {
+      "@id": "https://vigdis.shop/#service-lock-replacement",
+      "@type": "Service",
+      "name": "Lock Replacement",
+      "description": "Full lock replacement with BS3621 approved locks and high-security options from Mul-T-Lock and Abloy.",
+      "url": "https://vigdis.shop/services/lock-replacement",
+      "provider": { "@id": "https://vigdis.shop/#business" },
+      "areaServed": { "@id": "https://vigdis.shop/#place-central-london" }
+    },
+
+    {
+      "@id": "https://vigdis.shop/#service-key-cutting",
+      "@type": "Service",
+      "name": "Key Cutting",
+      "description": "Professional key cutting for all key types including Yale, Chubb, Mortice, Rim, Ingersoll, and security keys.",
+      "url": "https://vigdis.shop/services/key-cutting",
+      "provider": { "@id": "https://vigdis.shop/#business" },
+      "areaServed": { "@id": "https://vigdis.shop/#place-central-london" }
+    },
+
+    {
+      "@id": "https://vigdis.shop/#service-residential",
+      "@type": "Service",
+      "name": "Residential Locksmith",
+      "description": "Comprehensive home security solutions including lock changes, security upgrades, and burglary repairs.",
+      "url": "https://vigdis.shop/services/residential-locksmith",
+      "provider": { "@id": "https://vigdis.shop/#business" },
+      "areaServed": { "@id": "https://vigdis.shop/#place-central-london" }
+    },
+
+    {
+      "@id": "https://vigdis.shop/#service-commercial",
+      "@type": "Service",
+      "name": "Commercial Locksmith",
+      "description": "Specialist locksmith for offices, retail, hotels, and multi-unit buildings across Central London.",
+      "url": "https://vigdis.shop/services/commercial-locksmith",
+      "provider": { "@id": "https://vigdis.shop/#business" },
+      "areaServed": { "@id": "https://vigdis.shop/#place-central-london" }
+    },
+
+    {
+      "@id": "https://vigdis.shop/#service-smart-lock",
+      "@type": "Service",
+      "name": "Smart Lock Installation",
+      "description": "Installation of smart locks and access control systems from Yale, August, Schlage, and Nuki.",
+      "url": "https://vigdis.shop/services/smart-lock-installation",
+      "provider": { "@id": "https://vigdis.shop/#business" },
+      "areaServed": { "@id": "https://vigdis.shop/#place-central-london" }
+    },
+
+    {
+      "@id": "https://vigdis.shop/#place-mayfair",
+      "@type": ["Place", "AdministrativeArea"],
+      "name": "Mayfair",
+      "description": "An affluent district in the City of Westminster, Central London. Home to luxury hotels, embassies, and premium residential properties.",
+      "url": "https://vigdis.shop/service-areas/mayfair",
+      "geo": { "@type": "GeoCoordinates", "latitude": "51.5094", "longitude": "-0.1476" },
+      "containedInPlace": { "@id": "https://vigdis.shop/#place-westminster" },
+      "identifier": [
+        { "@type": "PropertyValue", "propertyID": "postcode", "value": "W1J" },
+        { "@type": "PropertyValue", "propertyID": "postcode", "value": "W1K" },
+        { "@type": "PropertyValue", "propertyID": "postcode", "value": "W1S" }
+      ],
+      "hasMap": "https://maps.google.com/?q=Mayfair,London",
+      "landmark": [
+        { "@type": "LandmarkOrHistoricalBuilding", "name": "Berkeley Square" },
+        { "@type": "LandmarkOrHistoricalBuilding", "name": "Grosvenor Square" },
+        { "@type": "LandmarkOrHistoricalBuilding", "name": "Shepherd Market" },
+        { "@type": "LandmarkOrHistoricalBuilding", "name": "Park Lane" },
+        { "@type": "LandmarkOrHistoricalBuilding", "name": "Bond Street" }
+      ]
+    },
+
+    {
+      "@id": "https://vigdis.shop/#place-westminster",
+      "@type": ["Place", "AdministrativeArea"],
+      "name": "Westminster",
+      "description": "The City of Westminster, a London borough containing Mayfair, Belgravia, Soho, and other central London districts.",
+      "url": "https://vigdis.shop/service-areas/westminster",
+      "geo": { "@type": "GeoCoordinates", "latitude": "51.4994", "longitude": "-0.1360" },
+      "containedInPlace": { "@id": "https://vigdis.shop/#place-london" },
+      "containsPlace": [
+        { "@id": "https://vigdis.shop/#place-mayfair" },
+        { "@id": "https://vigdis.shop/#place-belgravia" },
+        { "@id": "https://vigdis.shop/#place-soho" },
+        { "@id": "https://vigdis.shop/#place-victoria" }
+      ],
+      "identifier": [
+        { "@type": "PropertyValue", "propertyID": "postcode", "value": "SW1A" },
+        { "@type": "PropertyValue", "propertyID": "postcode", "value": "SW1P" }
+      ]
+    },
+
+    {
+      "@id": "https://vigdis.shop/#place-belgravia",
+      "@type": ["Place", "AdministrativeArea"],
+      "name": "Belgravia",
+      "description": "One of London's most exclusive residential districts, known for stucco-fronted Victorian terraces and embassy residences.",
+      "url": "https://vigdis.shop/service-areas/belgravia",
+      "geo": { "@type": "GeoCoordinates", "latitude": "51.4961", "longitude": "-0.1538" },
+      "containedInPlace": { "@id": "https://vigdis.shop/#place-westminster" },
+      "identifier": [
+        { "@type": "PropertyValue", "propertyID": "postcode", "value": "SW1X" }
+      ]
+    },
+
+    {
+      "@id": "https://vigdis.shop/#place-knightsbridge",
+      "@type": ["Place", "AdministrativeArea"],
+      "name": "Knightsbridge",
+      "description": "Premium shopping and residential district home to Harrods and Harvey Nichols.",
+      "url": "https://vigdis.shop/service-areas/knightsbridge",
+      "geo": { "@type": "GeoCoordinates", "latitude": "51.5010", "longitude": "-0.1607" },
+      "containedInPlace": { "@id": "https://vigdis.shop/#place-westminster" },
+      "identifier": [
+        { "@type": "PropertyValue", "propertyID": "postcode", "value": "SW1X" },
+        { "@type": "PropertyValue", "propertyID": "postcode", "value": "SW3" }
+      ]
+    },
+
+    {
+      "@id": "https://vigdis.shop/#place-soho",
+      "@type": ["Place", "AdministrativeArea"],
+      "name": "Soho",
+      "description": "London's entertainment and media district, north of Covent Garden and east of Mayfair.",
+      "url": "https://vigdis.shop/service-areas/soho",
+      "geo": { "@type": "GeoCoordinates", "latitude": "51.5137", "longitude": "-0.1337" },
+      "containedInPlace": { "@id": "https://vigdis.shop/#place-westminster" },
+      "identifier": [
+        { "@type": "PropertyValue", "propertyID": "postcode", "value": "W1D" },
+        { "@type": "PropertyValue", "propertyID": "postcode", "value": "W1F" }
+      ]
+    },
+
+    {
+      "@id": "https://vigdis.shop/#place-marylebone",
+      "@type": ["Place", "AdministrativeArea"],
+      "name": "Marylebone",
+      "description": "Professional and residential district north of Oxford Street, known for Harley Street medical practices.",
+      "url": "https://vigdis.shop/service-areas/marylebone",
+      "geo": { "@type": "GeoCoordinates", "latitude": "51.5215", "longitude": "-0.1495" },
+      "containedInPlace": { "@id": "https://vigdis.shop/#place-westminster" },
+      "identifier": [
+        { "@type": "PropertyValue", "propertyID": "postcode", "value": "W1U" },
+        { "@type": "PropertyValue", "propertyID": "postcode", "value": "W1G" }
+      ]
+    },
+
+    {
+      "@id": "https://vigdis.shop/#place-chelsea",
+      "@type": ["Place", "AdministrativeArea"],
+      "name": "Chelsea",
+      "description": "Affluent residential area in west London known for the King's Road, Sloane Square, and Chelsea Embankment.",
+      "url": "https://vigdis.shop/service-areas/chelsea",
+      "geo": { "@type": "GeoCoordinates", "latitude": "51.4854", "longitude": "-0.1693" },
+      "containedInPlace": { "@id": "https://vigdis.shop/#place-london" },
+      "identifier": [
+        { "@type": "PropertyValue", "propertyID": "postcode", "value": "SW3" },
+        { "@type": "PropertyValue", "propertyID": "postcode", "value": "SW10" }
+      ]
+    },
+
+    {
+      "@id": "https://vigdis.shop/#place-kensington",
+      "@type": ["Place", "AdministrativeArea"],
+      "name": "Kensington",
+      "description": "Royal Borough of Kensington and Chelsea district, home to Kensington Palace and Holland Park.",
+      "url": "https://vigdis.shop/service-areas/kensington",
+      "geo": { "@type": "GeoCoordinates", "latitude": "51.5018", "longitude": "-0.1919" },
+      "containedInPlace": { "@id": "https://vigdis.shop/#place-london" },
+      "identifier": [
+        { "@type": "PropertyValue", "propertyID": "postcode", "value": "W8" }
+      ]
+    },
+
+    {
+      "@id": "https://vigdis.shop/#place-victoria",
+      "@type": ["Place", "AdministrativeArea"],
+      "name": "Victoria",
+      "description": "Transport and residential hub in Westminster, centred on Victoria railway station.",
+      "url": "https://vigdis.shop/service-areas/victoria",
+      "geo": { "@type": "GeoCoordinates", "latitude": "51.4965", "longitude": "-0.1439" },
+      "containedInPlace": { "@id": "https://vigdis.shop/#place-westminster" },
+      "identifier": [
+        { "@type": "PropertyValue", "propertyID": "postcode", "value": "SW1E" },
+        { "@type": "PropertyValue", "propertyID": "postcode", "value": "SW1W" }
+      ]
+    },
+
+    {
+      "@id": "https://vigdis.shop/#place-paddington",
+      "@type": ["Place", "AdministrativeArea"],
+      "name": "Paddington",
+      "description": "West London area centred on Paddington railway station. Includes Bayswater and Lancaster Gate.",
+      "url": "https://vigdis.shop/service-areas/paddington",
+      "geo": { "@type": "GeoCoordinates", "latitude": "51.5154", "longitude": "-0.1755" },
+      "containedInPlace": { "@id": "https://vigdis.shop/#place-london" },
+      "identifier": [
+        { "@type": "PropertyValue", "propertyID": "postcode", "value": "W2" }
+      ]
+    },
+
+    {
+      "@id": "https://vigdis.shop/#place-central-london",
+      "@type": ["Place", "AdministrativeArea"],
+      "name": "Central London",
+      "description": "The historic core of London, including the City of Westminster and surrounding inner-London districts.",
+      "containedInPlace": { "@id": "https://vigdis.shop/#place-london" },
+      "containsPlace": [
+        { "@id": "https://vigdis.shop/#place-mayfair" },
+        { "@id": "https://vigdis.shop/#place-westminster" },
+        { "@id": "https://vigdis.shop/#place-belgravia" },
+        { "@id": "https://vigdis.shop/#place-knightsbridge" },
+        { "@id": "https://vigdis.shop/#place-soho" },
+        { "@id": "https://vigdis.shop/#place-marylebone" },
+        { "@id": "https://vigdis.shop/#place-chelsea" },
+        { "@id": "https://vigdis.shop/#place-kensington" },
+        { "@id": "https://vigdis.shop/#place-victoria" },
+        { "@id": "https://vigdis.shop/#place-paddington" }
+      ]
+    },
+
+    {
+      "@id": "https://vigdis.shop/#place-london",
+      "@type": "City",
+      "name": "London",
+      "description": "The capital city of England and the United Kingdom.",
+      "containsPlace": { "@id": "https://vigdis.shop/#place-central-london" }
+    },
+
+    {
+      "@id": "https://vigdis.shop/#term-locksmith",
+      "@type": "DefinedTerm",
+      "name": "Locksmith",
+      "description": "A tradesperson who works with locks, keys, and security systems. Services include lock installation, repair, replacement, key cutting, and emergency lockout resolution.",
+      "inDefinedTermSet": { "@id": "https://vigdis.shop/#locksmith-terms" }
+    },
+
+    {
+      "@id": "https://vigdis.shop/#term-emergency-locksmith",
+      "@type": "DefinedTerm",
+      "name": "Emergency Locksmith",
+      "description": "A certified locksmith available 24/7 to respond to urgent lock emergencies including lockouts, broken locks, and post-burglary security repairs. Vigdis Locksmith London offers 15-30 minute emergency response in Mayfair.",
+      "url": "https://vigdis.shop/services/emergency-locksmith",
+      "inDefinedTermSet": { "@id": "https://vigdis.shop/#locksmith-terms" }
+    },
+
+    {
+      "@id": "https://vigdis.shop/#term-nde",
+      "@type": "DefinedTerm",
+      "name": "Non-Destructive Entry",
+      "description": "Professional locksmith technique to open a locked door without damaging the lock, using picking, decoding, or bypass tools.",
+      "inDefinedTermSet": { "@id": "https://vigdis.shop/#locksmith-terms" }
+    },
+
+    {
+      "@id": "https://vigdis.shop/#term-euro-cylinder",
+      "@type": "DefinedTerm",
+      "name": "Euro Cylinder Lock",
+      "description": "The most common lock type in UK doors. Available in anti-snap, anti-drill, anti-pick, and anti-bump security grades.",
+      "inDefinedTermSet": { "@id": "https://vigdis.shop/#locksmith-terms" }
+    },
+
+    {
+      "@id": "https://vigdis.shop/#term-mortice",
+      "@type": "DefinedTerm",
+      "name": "Mortice Lock",
+      "description": "Lock fitted inside a pocket cut in the door body. BS3621 mortice deadlocks are the gold standard for UK home security.",
+      "inDefinedTermSet": { "@id": "https://vigdis.shop/#locksmith-terms" }
+    },
+
+    {
+      "@id": "https://vigdis.shop/#term-bs3621",
+      "@type": "DefinedTerm",
+      "name": "BS3621",
+      "description": "British Standard for thief-resistant lock assemblies. Required by most UK home insurance policies.",
+      "inDefinedTermSet": { "@id": "https://vigdis.shop/#locksmith-terms" }
+    },
+
+    {
+      "@id": "https://vigdis.shop/#locksmith-terms",
+      "@type": "DefinedTermSet",
+      "name": "Locksmith Terminology",
+      "description": "Authoritative definitions of locksmith and security terms by Vigdis Locksmith London",
+      "url": "https://vigdis.shop/faq"
+    },
+
+    {
+      "@id": "https://vigdis.shop/#problem-lockout",
+      "@type": "Thing",
+      "name": "Lockout",
+      "description": "Situation where a person cannot access their property due to lost keys, broken keys, or lock failure.",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "Call Emergency Locksmith",
+        "target": "tel:+442036706551",
+        "agent": { "@id": "https://vigdis.shop/#business" }
+      }
+    },
+
+    {
+      "@id": "https://vigdis.shop/#problem-broken-lock",
+      "@type": "Thing",
+      "name": "Broken Lock",
+      "description": "A lock that has failed, been damaged, or been tampered with, preventing secure access to a property."
+    },
+
+    {
+      "@id": "https://vigdis.shop/#problem-lost-keys",
+      "@type": "Thing",
+      "name": "Lost Keys",
+      "description": "Situation where keys to a property have been lost or stolen, requiring emergency locksmith response or lock rekeying."
+    },
+
+    {
+      "@id": "https://vigdis.shop/#problem-broken-key",
+      "@type": "Thing",
+      "name": "Broken Key in Lock",
+      "description": "A key snapped inside the lock cylinder, requiring specialist extraction by a trained locksmith."
+    },
+
+    {
+      "@id": "https://vigdis.shop/#problem-security-breach",
+      "@type": "Thing",
+      "name": "Security Breach",
+      "description": "A break-in or attempted burglary that has damaged the lock or door, requiring emergency repair and security upgrade."
+    },
+
+    {
+      "@id": "https://vigdis.shop/#aggregate-rating",
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "247",
+      "bestRating": "5",
+      "worstRating": "1",
+      "itemReviewed": { "@id": "https://vigdis.shop/#business" }
+    },
+
+    {
+      "@id": "https://vigdis.shop/#website",
+      "@type": "WebSite",
+      "name": "Vigdis Locksmith London",
+      "url": "https://vigdis.shop",
+      "inLanguage": "en-GB",
+      "publisher": { "@id": "https://vigdis.shop/#business" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://vigdis.shop/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+
+  ]
+}

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Phone, CheckCircle, ArrowRight } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
-import { getBreadcrumbSchema, getServiceSchema, getFAQSchema } from "@/lib/schema";
+import { getBreadcrumbSchema, getServiceSchema, getFAQSchema, getSpeakableSchema, getWebPageSchema } from "@/lib/schema";
 import SchemaScript from "@/components/SchemaScript";
 import FAQItem from "@/components/FAQItem";
 
@@ -43,6 +43,8 @@ export default function TwentyFourHourPage() {
       <SchemaScript schema={getBreadcrumbSchema(breadcrumbs)} />
       <SchemaScript schema={getServiceSchema("24 Hour Locksmith Mayfair", "Round-the-clock locksmith service in Mayfair and Central London, available every hour of every day.", `${BUSINESS.url}/services/24-hour-locksmith`)} />
       <SchemaScript schema={getFAQSchema(faqs)} />
+      <SchemaScript schema={getSpeakableSchema(`${BUSINESS.url}/services/24-hour-locksmith`)} />
+      <SchemaScript schema={getWebPageSchema(`${BUSINESS.url}/services/24-hour-locksmith`, "24 Hour Locksmith Mayfair — Available Every Hour", "Round-the-clock locksmith in Mayfair, 365 days a year. No extra charge for nights or weekends. Call 020 3670 6551.")} />
 
       <section className="bg-slate-900 text-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

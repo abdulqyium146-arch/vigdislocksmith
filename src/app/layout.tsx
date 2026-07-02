@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { BUSINESS } from "@/lib/business";
-import { getLocalBusinessSchema, getWebSiteSchema } from "@/lib/schema";
+import { getLocalBusinessSchema, getWebSiteSchema, getDatasetSchema } from "@/lib/schema";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
@@ -98,6 +98,17 @@ export const metadata: Metadata = {
     },
   },
 
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "16x16 32x32", type: "image/x-icon" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: "/favicon.ico",
+  },
+
+  manifest: "/site.webmanifest",
+
   verification: {
     google: "MEKHUbvZnc48CmGOhlpfEE1swXJcxWSuTMM9n6nHxJs",
   },
@@ -119,6 +130,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(getWebSiteSchema()) }}
+        />
+        {/* Dataset schema linking all knowledge assets */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(getDatasetSchema()) }}
         />
       </head>
       <body className="bg-white text-gray-900 antialiased">
