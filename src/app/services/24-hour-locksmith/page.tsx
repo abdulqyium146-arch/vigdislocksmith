@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "24 Hour Locksmith Mayfair | Always Open",
   description:
     "24-hour locksmith in Mayfair and Central London. We never close — midnight, Christmas Day, or any time you need us. Call 020 3670 6551.",
-  alternates: { canonical: "https://vigdislocksmith.co.uk/services/24-hour-locksmith" },
+  alternates: { canonical: "https://vigdis.shop/services/24-hour-locksmith" },
 };
 
 const faqs = [

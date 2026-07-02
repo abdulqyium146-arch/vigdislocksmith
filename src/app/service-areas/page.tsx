@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Locksmith Service Areas | Mayfair & Central London Coverage",
   description:
     "Vigdis Locksmith London covers Mayfair, Westminster, Belgravia, Knightsbridge, Soho, Marylebone, Chelsea, Kensington and all of Central London. Call 020 3670 6551.",
-  alternates: { canonical: "https://vigdislocksmith.co.uk/service-areas" },
+  alternates: { canonical: "https://vigdis.shop/service-areas" },
 };
 
 const areaDetails = [

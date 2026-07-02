@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Emergency Locksmith Mayfair | 24/7 Fast Response",
   description:
     "Locked out in Mayfair? Our emergency locksmiths arrive in 15-30 minutes, 24/7. No call-out fee. DBS checked technicians. Call 020 3670 6551 now.",
-  alternates: { canonical: "https://vigdislocksmith.co.uk/services/emergency-locksmith" },
+  alternates: { canonical: "https://vigdis.shop/services/emergency-locksmith" },
 };
 
 const faqs = [

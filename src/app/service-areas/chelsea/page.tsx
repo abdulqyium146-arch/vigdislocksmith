@@ -8,7 +8,7 @@ import SchemaScript from "@/components/SchemaScript";
 export const metadata: Metadata = {
   title: "Locksmith Chelsea | 24/7 Emergency Locksmith SW3",
   description: "Expert locksmith in Chelsea SW3. King's Road, Sloane Square, Chelsea Embankment covered. 24/7 emergency service. Call 020 3670 6551.",
-  alternates: { canonical: "https://vigdislocksmith.co.uk/service-areas/chelsea" },
+  alternates: { canonical: "https://vigdis.shop/service-areas/chelsea" },
 };
 
 export default function ChelseaPage() {

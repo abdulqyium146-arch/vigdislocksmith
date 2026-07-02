@@ -8,7 +8,7 @@ import SchemaScript from "@/components/SchemaScript";
 export const metadata: Metadata = {
   title: "Locksmith Marylebone | 24/7 Emergency Locksmith W1U",
   description: "Expert locksmith in Marylebone W1. Emergency lockouts, lock repair. Covering Harley Street, Baker Street, Marylebone High Street. Call 020 3670 6551.",
-  alternates: { canonical: "https://vigdislocksmith.co.uk/service-areas/marylebone" },
+  alternates: { canonical: "https://vigdis.shop/service-areas/marylebone" },
 };
 
 export default function MarylebonePage() {

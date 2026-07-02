@@ -8,7 +8,7 @@ import SchemaScript from "@/components/SchemaScript";
 export const metadata: Metadata = {
   title: "Locksmith Westminster | 24/7 Emergency Locksmith SW1",
   description: "Professional locksmith in Westminster, London SW1. 24/7 emergency service. Fast 15-30 min response. Call 020 3670 6551.",
-  alternates: { canonical: "https://vigdislocksmith.co.uk/service-areas/westminster" },
+  alternates: { canonical: "https://vigdis.shop/service-areas/westminster" },
 };
 
 export default function WestminsterPage() {

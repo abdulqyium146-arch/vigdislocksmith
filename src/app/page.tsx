@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title: "Locksmith Mayfair | Vigdis Locksmith London | 24/7 Emergency",
   description:
     "Expert locksmith in Mayfair available 24/7. Emergency lockouts, lock repair, lock replacement & key cutting. ★★★★★ 5.0 rated with 247 reviews. Call 020 3670 6551 now.",
-  alternates: { canonical: "https://vigdislocksmith.co.uk" },
+  alternates: { canonical: "https://vigdis.shop" },
 };
 
 const faqs = [

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Contact Us | Vigdis Locksmith London",
   description:
     "Contact Vigdis Locksmith London for emergency locksmith help in Mayfair. Call 020 3670 6551 or send a message. Available 24/7.",
-  alternates: { canonical: "https://vigdislocksmith.co.uk/contact" },
+  alternates: { canonical: "https://vigdis.shop/contact" },
 };
 
 export default function ContactPage() {

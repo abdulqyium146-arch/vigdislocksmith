@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Smart Lock Installation Mayfair | App-Controlled Access",
   description:
     "Professional smart lock installation in Mayfair. Keyless entry, app-controlled, biometric. Leading brands fitted by certified locksmiths. Call 020 3670 6551.",
-  alternates: { canonical: "https://vigdislocksmith.co.uk/services/smart-lock-installation" },
+  alternates: { canonical: "https://vigdis.shop/services/smart-lock-installation" },
 };
 
 export default function SmartLockPage() {

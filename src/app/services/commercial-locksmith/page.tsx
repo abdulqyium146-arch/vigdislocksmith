@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Commercial Locksmith Mayfair | Business Security Specialists",
   description:
     "Specialist commercial locksmith services in Mayfair. Office lockouts, access control, master key systems. Call 020 3670 6551.",
-  alternates: { canonical: "https://vigdislocksmith.co.uk/services/commercial-locksmith" },
+  alternates: { canonical: "https://vigdis.shop/services/commercial-locksmith" },
 };
 
 export default function CommercialLocksmithPage() {

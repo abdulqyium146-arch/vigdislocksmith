@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "About Vigdis Locksmith London | Established 2009",
   description:
     "Learn about Vigdis Locksmith London — Mayfair's most trusted locksmith since 2009. DBS checked, fully insured, 5★ rated with 247 reviews.",
-  alternates: { canonical: "https://vigdislocksmith.co.uk/about" },
+  alternates: { canonical: "https://vigdis.shop/about" },
 };
 
 const certifications = [

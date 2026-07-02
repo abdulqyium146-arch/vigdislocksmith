@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: "Locksmith in Mayfair, London | 24/7 Emergency Service",
   description:
     "Expert locksmith in Mayfair, London W1. 24/7 emergency service covering Park Lane, Berkeley Square, Grosvenor Square & surrounding areas. Call 020 3670 6551.",
-  alternates: { canonical: "https://vigdislocksmith.co.uk/service-areas/mayfair" },
+  alternates: { canonical: "https://vigdis.shop/service-areas/mayfair" },
 };
 
 const mayfairSchema = {

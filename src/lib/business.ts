@@ -4,7 +4,7 @@ export const BUSINESS = {
   phone: "+44 20 3670 6551",
   phoneDisplay: "020 3670 6551",
   whatsapp: "442036706551",
-  email: "info@vigdislocksmith.co.uk",
+  email: "info@vigdis.shop",
   address: {
     street: "10-11 Park Place",
     city: "London",
@@ -15,7 +15,7 @@ export const BUSINESS = {
   geo: { lat: 51.5037, lng: -0.1420 },
   rating: 5.0,
   reviewCount: 247,
-  url: "https://vigdislocksmith.co.uk",
+  url: "https://vigdis.shop",
   established: 2009,
   responseTime: "15-30 minutes",
   availability: "24/7/365",

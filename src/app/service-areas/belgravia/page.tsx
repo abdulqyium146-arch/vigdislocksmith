@@ -8,7 +8,7 @@ import SchemaScript from "@/components/SchemaScript";
 export const metadata: Metadata = {
   title: "Locksmith Belgravia | 24/7 Emergency Locksmith SW1X",
   description: "Professional locksmith in Belgravia SW1X. Emergency lockouts, lock repair, lock replacement. 15-30 min response. Call 020 3670 6551.",
-  alternates: { canonical: "https://vigdislocksmith.co.uk/service-areas/belgravia" },
+  alternates: { canonical: "https://vigdis.shop/service-areas/belgravia" },
 };
 
 export default function BelgraviaPage() {

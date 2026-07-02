@@ -8,7 +8,7 @@ import SchemaScript from "@/components/SchemaScript";
 export const metadata: Metadata = {
   title: "Locksmith Soho | 24/7 Emergency Locksmith W1D W1F",
   description: "Emergency locksmith in Soho W1. Fast response, no call-out fee. Covering Old Compton Street, Dean Street, Wardour Street. Call 020 3670 6551.",
-  alternates: { canonical: "https://vigdislocksmith.co.uk/service-areas/soho" },
+  alternates: { canonical: "https://vigdis.shop/service-areas/soho" },
 };
 
 export default function SohoPage() {

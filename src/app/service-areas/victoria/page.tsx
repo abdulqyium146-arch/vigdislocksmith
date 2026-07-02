@@ -8,7 +8,7 @@ import SchemaScript from "@/components/SchemaScript";
 export const metadata: Metadata = {
   title: "Locksmith Victoria | 24/7 Emergency Locksmith SW1V",
   description: "Professional locksmith in Victoria SW1V. Near Victoria Station. Emergency service 24/7. Fast response. Call 020 3670 6551.",
-  alternates: { canonical: "https://vigdislocksmith.co.uk/service-areas/victoria" },
+  alternates: { canonical: "https://vigdis.shop/service-areas/victoria" },
 };
 
 export default function VictoriaPage() {

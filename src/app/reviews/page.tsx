@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Customer Reviews | 5★ Rated Locksmith Mayfair",
   description:
     "Read 247 five-star reviews for Vigdis Locksmith London. Trusted by hundreds of customers in Mayfair, Westminster, and Central London. Call 020 3670 6551.",
-  alternates: { canonical: "https://vigdislocksmith.co.uk/reviews" },
+  alternates: { canonical: "https://vigdis.shop/reviews" },
 };
 
 const aggregateRatingSchema = {

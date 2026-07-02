@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Residential Locksmith Mayfair | Home Security Experts",
   description:
     "Comprehensive residential locksmith services in Mayfair. Lock changes, upgrades, burglary repair, security surveys. Call 020 3670 6551.",
-  alternates: { canonical: "https://vigdislocksmith.co.uk/services/residential-locksmith" },
+  alternates: { canonical: "https://vigdis.shop/services/residential-locksmith" },
 };
 
 export default function ResidentialLocksmithPage() {

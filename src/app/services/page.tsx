@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Locksmith Services Mayfair | All Services",
   description:
     "Full range of professional locksmith services in Mayfair and Central London. Emergency lockouts, lock repair, lock replacement, key cutting, smart locks and more. Available 24/7.",
-  alternates: { canonical: "https://vigdislocksmith.co.uk/services" },
+  alternates: { canonical: "https://vigdis.shop/services" },
 };
 
 const serviceDetails = [

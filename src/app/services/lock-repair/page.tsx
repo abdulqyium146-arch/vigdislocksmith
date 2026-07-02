@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Lock Repair Mayfair | Fast On-Site Lock Repair Service",
   description:
     "Professional lock repair in Mayfair and Central London. All lock types including Yale, Mortice, Euro Cylinder. Fast on-site repair. Call 020 3670 6551.",
-  alternates: { canonical: "https://vigdislocksmith.co.uk/services/lock-repair" },
+  alternates: { canonical: "https://vigdis.shop/services/lock-repair" },
 };
 
 const faqs = [

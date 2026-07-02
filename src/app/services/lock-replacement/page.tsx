@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Lock Replacement Mayfair | High-Security Locks Supplied & Fitted",
   description:
     "Professional lock replacement in Mayfair. BS3621 approved locks, high-security cylinders. Supplied and fitted by certified locksmiths. Call 020 3670 6551.",
-  alternates: { canonical: "https://vigdislocksmith.co.uk/services/lock-replacement" },
+  alternates: { canonical: "https://vigdis.shop/services/lock-replacement" },
 };
 
 const faqs = [

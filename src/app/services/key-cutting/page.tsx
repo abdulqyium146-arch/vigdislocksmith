@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Key Cutting Mayfair | All Key Types Cut Precisely",
   description:
     "Professional key cutting in Mayfair and Central London. Yale, Mortice, Chubb, security keys and more. Fast, accurate cutting. Call 020 3670 6551.",
-  alternates: { canonical: "https://vigdislocksmith.co.uk/services/key-cutting" },
+  alternates: { canonical: "https://vigdis.shop/services/key-cutting" },
 };
 
 export default function KeyCuttingPage() {

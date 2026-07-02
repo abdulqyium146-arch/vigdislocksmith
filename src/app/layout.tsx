@@ -7,53 +7,78 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingCTA from "@/components/FloatingCTA";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#1a1a2e",
+  themeColor: "#0f172a",
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(BUSINESS.url),
+  metadataBase: new URL("https://vigdis.shop"),
+
+  applicationName: BUSINESS.name,
+
   title: {
-    default: `Locksmith Mayfair | ${BUSINESS.name} | 24/7 Emergency`,
-    template: `%s | ${BUSINESS.name}`,
+    default: "Locksmith Mayfair | Vigdis Locksmith London | 24/7",
+    template: "%s | Vigdis Locksmith London",
   },
-  description: `Expert locksmith in Mayfair. Available 24/7 for emergency lockouts, lock repair, lock replacement & key cutting. ★★★★★ Rated. Call ${BUSINESS.phoneDisplay} now.`,
+
+  description:
+    "Expert locksmith in Mayfair, London. 24/7 emergency lockouts, lock repair, replacement & key cutting. ★★★★★ 247 reviews. No call-out fee. Call 020 3670 6551.",
+
   keywords: [
     "locksmith mayfair",
     "emergency locksmith mayfair",
     "locksmith westminster",
-    "24 hour locksmith london",
+    "24 hour locksmith mayfair",
     "lock repair mayfair",
+    "lock replacement mayfair",
+    "key cutting mayfair",
+    "locksmith central london",
+    "emergency lockout london",
   ],
-  authors: [{ name: BUSINESS.name }],
+
+  authors: [{ name: BUSINESS.name, url: "https://vigdis.shop" }],
   creator: BUSINESS.name,
   publisher: BUSINESS.name,
+  category: "Locksmith Services",
+
+  // Prevent iOS from auto-linking phone numbers (we control our own CTAs)
+  formatDetection: { telephone: false, email: false, address: false },
+
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: BUSINESS.url,
+    url: "https://vigdis.shop",
     siteName: BUSINESS.name,
-    title: `Locksmith Mayfair | ${BUSINESS.name} | 24/7 Emergency`,
-    description: `Expert locksmith in Mayfair. 24/7 emergency lockout service. ★★★★★ ${BUSINESS.reviewCount} reviews. Call now.`,
+    title: "Locksmith Mayfair | Vigdis Locksmith London | 24/7",
+    description:
+      "Expert locksmith in Mayfair. 24/7 emergency service. ★★★★★ 247 Google reviews. No call-out fee. Call now.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: `${BUSINESS.name} - Locksmith Mayfair`,
+        alt: "Vigdis Locksmith London — Locksmith Mayfair",
+        type: "image/jpeg",
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
-    title: `Locksmith Mayfair | ${BUSINESS.name}`,
+    site: "@vigdislocksmith",
+    title: "Locksmith Mayfair | Vigdis Locksmith London",
     description: "24/7 emergency locksmith in Mayfair & Central London. 5★ rated.",
     images: ["/og-image.jpg"],
   },
+
   robots: {
     index: true,
     follow: true,
@@ -65,7 +90,14 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  alternates: { canonical: BUSINESS.url },
+
+  alternates: {
+    canonical: "https://vigdis.shop",
+    languages: {
+      "en-GB": "https://vigdis.shop",
+    },
+  },
+
   verification: {
     google: "MEKHUbvZnc48CmGOhlpfEE1swXJcxWSuTMM9n6nHxJs",
   },
@@ -75,10 +107,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-GB" className={inter.variable}>
       <head>
+        {/* Preconnect to Google Fonts (already loaded via next/font but belt-and-braces) */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* LocalBusiness + Locksmith schema sitewide */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(getLocalBusinessSchema()) }}
         />
+        {/* WebSite schema with SearchAction */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(getWebSiteSchema()) }}

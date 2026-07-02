@@ -8,7 +8,7 @@ import SchemaScript from "@/components/SchemaScript";
 export const metadata: Metadata = {
   title: "Locksmith Paddington | 24/7 Emergency Locksmith W2",
   description: "Expert locksmith in Paddington W2. Emergency lockouts near Paddington Station. 24/7 service, fast response. Call 020 3670 6551.",
-  alternates: { canonical: "https://vigdislocksmith.co.uk/service-areas/paddington" },
+  alternates: { canonical: "https://vigdis.shop/service-areas/paddington" },
 };
 
 export default function PaddingtonPage() {

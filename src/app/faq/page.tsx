@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Locksmith FAQ | Common Questions Answered",
   description:
     "Answers to common questions about locksmith services in Mayfair and Central London. Response times, pricing, lock types, and more.",
-  alternates: { canonical: "https://vigdislocksmith.co.uk/faq" },
+  alternates: { canonical: "https://vigdis.shop/faq" },
 };
 
 const allFaqs = [

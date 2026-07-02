@@ -8,7 +8,7 @@ import SchemaScript from "@/components/SchemaScript";
 export const metadata: Metadata = {
   title: "Locksmith Kensington | 24/7 Emergency Locksmith W8",
   description: "Expert locksmith in Kensington W8 & SW7. Kensington High Street, Kensington Palace Gardens covered. 24/7 service. Call 020 3670 6551.",
-  alternates: { canonical: "https://vigdislocksmith.co.uk/service-areas/kensington" },
+  alternates: { canonical: "https://vigdis.shop/service-areas/kensington" },
 };
 
 export default function KensingtonPage() {

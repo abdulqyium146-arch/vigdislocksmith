@@ -8,7 +8,7 @@ import SchemaScript from "@/components/SchemaScript";
 export const metadata: Metadata = {
   title: "Locksmith Knightsbridge | 24/7 Emergency Locksmith SW1X",
   description: "Expert locksmith in Knightsbridge SW1X & SW3. Emergency lockouts near Harrods, Sloane Street. Fast response. Call 020 3670 6551.",
-  alternates: { canonical: "https://vigdislocksmith.co.uk/service-areas/knightsbridge" },
+  alternates: { canonical: "https://vigdis.shop/service-areas/knightsbridge" },
 };
 
 export default function KnightsbridgePage() {
