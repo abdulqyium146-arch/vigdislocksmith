@@ -66,6 +66,9 @@ export const metadata: Metadata = {
     },
   },
   alternates: { canonical: BUSINESS.url },
+  verification: {
+    google: "MEKHUbvZnc48CmGOhlpfEE1swXJcxWSuTMM9n6nHxJs",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
