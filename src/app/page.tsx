@@ -1,65 +1,467 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Phone, Clock, Shield, Star, Zap, Users, CheckCircle, MapPin, ArrowRight } from "lucide-react";
+import { BUSINESS } from "@/lib/business";
+import { getFAQSchema, getBreadcrumbSchema } from "@/lib/schema";
+import SchemaScript from "@/components/SchemaScript";
+import ReviewCard from "@/components/ReviewCard";
+import ServiceCard from "@/components/ServiceCard";
+import FAQItem from "@/components/FAQItem";
+import TrustBadges from "@/components/TrustBadges";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "Locksmith Mayfair | Vigdis Locksmith London | 24/7 Emergency",
+  description:
+    "Expert locksmith in Mayfair available 24/7. Emergency lockouts, lock repair, lock replacement & key cutting. ★★★★★ 5.0 rated with 247 reviews. Call 020 3670 6551 now.",
+  alternates: { canonical: "https://vigdislocksmith.co.uk" },
+};
+
+const faqs = [
+  {
+    question: "How quickly can a locksmith arrive in Mayfair?",
+    answer:
+      "Our locksmiths typically arrive within 15-30 minutes anywhere in Mayfair and the surrounding Central London areas. We have multiple mobile units stationed across Westminster to ensure the fastest possible response time.",
+  },
+  {
+    question: "Do you offer 24-hour emergency locksmith services in Mayfair?",
+    answer:
+      "Yes. Vigdis Locksmith London operates 24 hours a day, 7 days a week, 365 days a year across Mayfair and Westminster. Whether it's 3am or Christmas Day, we're always available.",
+  },
+  {
+    question: "How much does an emergency locksmith cost in Mayfair?",
+    answer:
+      "Our emergency locksmith call-out prices are transparent and competitive. We provide a fixed quote before starting any work with no hidden fees. Pricing depends on the time of day and type of work required.",
+  },
+  {
+    question: "Are your locksmiths DBS checked and insured?",
+    answer:
+      "Yes. All Vigdis Locksmith technicians are DBS checked, fully insured, and trained to the highest industry standards. We carry public liability insurance and all work is fully guaranteed.",
+  },
+  {
+    question: "What areas do you cover near Mayfair?",
+    answer:
+      "We cover Mayfair, Westminster, Belgravia, Knightsbridge, Soho, Marylebone, Pimlico, Victoria, Paddington, Chelsea, Kensington, and all of Central London.",
+  },
+  {
+    question: "Can you open any type of lock?",
+    answer:
+      "Our expert locksmiths can open virtually all lock types including Yale, Mortice, Deadbolt, Euro Cylinder, and high-security locks without causing damage. We use specialist non-destructive entry techniques wherever possible.",
+  },
+];
+
+const reviews = [
+  {
+    name: "James H.",
+    review:
+      "Locked out at midnight near Berkeley Square. Called Vigdis and a locksmith arrived in under 20 minutes. Professional, friendly and fair pricing. Couldn't recommend more highly.",
+    date: "March 2025",
+    location: "Mayfair, London",
+  },
+  {
+    name: "Sophie W.",
+    review:
+      "Brilliant service. Had my locks changed after moving into a new flat near Grosvenor Square. The technician was knowledgeable, explained everything and left no mess. Five stars without question.",
+    date: "January 2025",
+    location: "Westminster, London",
+  },
+  {
+    name: "Robert T.",
+    review:
+      "Used Vigdis for our office building on Park Lane. They upgraded all our commercial locks to high-security cylinders. Very efficient team, competitive price, excellent result.",
+    date: "February 2025",
+    location: "Mayfair, London",
+  },
+];
+
+const serviceDescriptions: Record<string, string> = {
+  "emergency-locksmith":
+    "Locked out? Our emergency locksmiths arrive in 15-30 minutes across Mayfair and Central London, 24 hours a day.",
+  "24-hour-locksmith":
+    "We never close. Day or night, our 24-hour locksmith service is always ready to help you across all of Central London.",
+  "lock-repair":
+    "Expert repair of all lock types including Yale, Mortice, Euro Cylinder, and high-security locks. Fast, professional service.",
+  "lock-replacement":
+    "Full lock replacement service with a wide range of high-security options including British Standard BS3621 approved locks.",
+  "key-cutting":
+    "Professional key cutting for all key types including Chubb, Yale, Mortice and security keys. Fast turnaround available.",
+  "residential-locksmith":
+    "Comprehensive home locksmith services covering lock changes, upgrades, burglary repair, and security assessments.",
+  "commercial-locksmith":
+    "Specialist commercial locksmith solutions for offices, retail premises, and multi-unit buildings across Central London.",
+  "smart-lock-installation":
+    "Installation of the latest smart locks and access control systems from leading brands. Future-proof your security.",
+};
+
+const features = [
+  {
+    icon: Zap,
+    title: "15-30 Min Response",
+    desc: "Our mobile units are stationed across Mayfair and Westminster for the fastest possible arrival times.",
+  },
+  {
+    icon: Clock,
+    title: "24/7 Availability",
+    desc: "We operate every hour of every day, including bank holidays and Christmas. Emergencies don't keep office hours.",
+  },
+  {
+    icon: Shield,
+    title: "Certified Experts",
+    desc: "All technicians are DBS checked, fully insured, and trained to industry-leading standards.",
+  },
+  {
+    icon: CheckCircle,
+    title: "No Hidden Fees",
+    desc: "We provide a clear, fixed quote before starting work. The price we quote is the price you pay.",
+  },
+  {
+    icon: Star,
+    title: "Guaranteed Work",
+    desc: "All our locksmith work is fully guaranteed. If you're not satisfied, we'll make it right.",
+  },
+  {
+    icon: Users,
+    title: "Local Knowledge",
+    desc: "Based in Mayfair since 2009, we know every street, building type, and lock in the area.",
+  },
+];
+
+export default function HomePage() {
+  const breadcrumbs = [{ name: "Home", url: BUSINESS.url }];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      <SchemaScript schema={getFAQSchema(faqs)} />
+      <SchemaScript schema={getBreadcrumbSchema(breadcrumbs)} />
+
+      {/* HERO */}
+      <section className="relative bg-slate-900 text-white overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-5"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 25px 25px, white 2px, transparent 0), radial-gradient(circle at 75px 75px, white 2px, transparent 0)",
+            backgroundSize: "100px 100px",
+          }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-32">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 bg-red-600/20 border border-red-500/30 rounded-full px-4 py-1.5 mb-6">
+              <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+              <span className="text-red-400 text-sm font-medium">
+                Available Now — 24/7 Emergency Service
+              </span>
+            </div>
+
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+              Emergency Locksmith Mayfair{" "}
+              <span className="text-red-500">— Available 24/7</span>
+            </h1>
+
+            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+              Vigdis Locksmith London serves Mayfair, Westminster &amp; Central London. Fast
+              15-30 minute response, guaranteed satisfaction, and transparent pricing — no
+              call-out fees.
+            </p>
+
+            <div className="flex flex-wrap gap-4 mb-10">
+              <a href={`tel:${BUSINESS.phone}`} className="btn-emergency">
+                <Phone className="w-5 h-5" />
+                Call Now: {BUSINESS.phoneDisplay}
+              </a>
+              <Link href="/contact" className="btn-secondary">
+                Get a Free Quote
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
+
+            <TrustBadges dark />
+
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-12 pt-12 border-t border-white/10">
+              {[
+                { value: "15 Min", label: "Avg Response" },
+                { value: "5.0★", label: "Google Rating" },
+                { value: "247", label: "5★ Reviews" },
+                { value: "Since 2009", label: "Established" },
+              ].map((stat) => (
+                <div key={stat.label} className="text-center">
+                  <p className="text-2xl md:text-3xl font-bold text-white">{stat.value}</p>
+                  <p className="text-gray-400 text-sm mt-1">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY CHOOSE US */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="section-heading">Mayfair&apos;s Most Trusted Locksmith Service</h2>
+            <p className="section-subheading">
+              Vigdis Locksmith London has been the go-to locksmith for Mayfair residents and
+              businesses since 2009. Here&apos;s why thousands of customers trust us.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((f) => {
+              const Icon = f.icon;
+              return (
+                <div
+                  key={f.title}
+                  className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+                >
+                  <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-red-600" />
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{f.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{f.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="section-heading">Professional Locksmith Services in Mayfair</h2>
+            <p className="section-subheading">
+              From emergency lockouts to smart lock installations, we offer a complete range of
+              locksmith services across Mayfair and Central London.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {BUSINESS.services.map((service) => (
+              <ServiceCard
+                key={service.slug}
+                icon={service.icon}
+                name={service.name}
+                description={
+                  serviceDescriptions[service.slug] ??
+                  "Professional locksmith service available 24/7 across Mayfair and Central London."
+                }
+                slug={service.slug}
+              />
+            ))}
+          </div>
+          <div className="text-center mt-10">
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2 text-red-600 font-semibold hover:text-red-700 transition-colors"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+              View all services
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* EMERGENCY BANNER */}
+      <section className="bg-red-600 py-14">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-red-100 text-sm font-medium uppercase tracking-widest mb-3">
+            Emergency Locksmith Mayfair
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Locked Out? Call Now — We&apos;re 15 Minutes Away
+          </h2>
+          <p className="text-red-100 text-lg mb-8 max-w-xl mx-auto">
+            Our emergency locksmith team is on call 24/7 across Mayfair and Central London.
+            Don&apos;t wait — we&apos;ll be there fast.
+          </p>
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href={`tel:${BUSINESS.phone}`}
+            className="inline-flex items-center gap-3 bg-white text-red-600 hover:bg-red-50 font-bold text-xl py-4 px-8 rounded-xl shadow-xl transition-all duration-200"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+            <Phone className="w-6 h-6" />
+            {BUSINESS.phoneDisplay}
           </a>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* SERVICE AREAS */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="section-heading">We Cover All of Central London</h2>
+            <p className="section-subheading">
+              Vigdis Locksmith London provides fast locksmith services across all major areas of
+              Central London. No call-out charge anywhere in our service area.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {BUSINESS.serviceAreas.map((area) => {
+              const slug = area.toLowerCase().replace(/\s+/g, "-");
+              const linked = [
+                "mayfair","westminster","belgravia","knightsbridge","soho",
+                "marylebone","victoria","paddington","chelsea","kensington",
+              ].includes(slug);
+              const card = (
+                <div className="flex items-center gap-3 bg-white rounded-xl p-4 border border-gray-200 hover:border-red-300 hover:shadow-md transition-all group">
+                  <MapPin className="w-4 h-4 text-red-600 flex-shrink-0" />
+                  <span className="font-medium text-gray-900 text-sm group-hover:text-red-600 transition-colors">
+                    {area}
+                  </span>
+                </div>
+              );
+              return linked ? (
+                <Link key={area} href={`/service-areas/${slug}`}>
+                  {card}
+                </Link>
+              ) : (
+                <div key={area}>{card}</div>
+              );
+            })}
+          </div>
+          <div className="text-center mt-10">
+            <Link
+              href="/service-areas"
+              className="inline-flex items-center gap-2 text-red-600 font-semibold hover:text-red-700 transition-colors"
+            >
+              View all service areas
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* REVIEWS */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <Star key={i} className="w-7 h-7 fill-yellow-400 text-yellow-400" />
+              ))}
+            </div>
+            <h2 className="section-heading">
+              5.0 — {BUSINESS.reviewCount} Google Reviews
+            </h2>
+            <p className="section-subheading">
+              Don&apos;t just take our word for it. Here&apos;s what our customers in Mayfair and
+              Central London say about us.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            {reviews.map((r) => (
+              <ReviewCard
+                key={r.name}
+                name={r.name}
+                review={r.review}
+                date={r.date}
+                location={r.location}
+              />
+            ))}
+          </div>
+          <div className="text-center">
+            <Link
+              href="/reviews"
+              className="inline-flex items-center gap-2 text-red-600 font-semibold hover:text-red-700 transition-colors"
+            >
+              Read all {BUSINESS.reviewCount} reviews
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="section-heading">Frequently Asked Questions</h2>
+            <p className="section-subheading">
+              Everything you need to know about our locksmith services in Mayfair and Central London.
+            </p>
+          </div>
+          <div className="space-y-3">
+            {faqs.map((faq) => (
+              <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />
+            ))}
+          </div>
+          <div className="text-center mt-10">
+            <Link
+              href="/faq"
+              className="inline-flex items-center gap-2 text-red-600 font-semibold hover:text-red-700 transition-colors"
+            >
+              View all FAQs
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ABOUT / GEO ENTITY */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">
+            About Vigdis Locksmith London
+          </h2>
+          <div className="space-y-4 text-gray-700 leading-relaxed">
+            <p>
+              <strong>Vigdis Locksmith London</strong> is a professional locksmith company based
+              at 10-11 Park Place, Mayfair, London SW1A 1LP. Established in 2009, we have provided
+              emergency locksmith services, lock repair, lock replacement, and key cutting to
+              thousands of residential and commercial customers across Mayfair, Westminster, and
+              Central London.
+            </p>
+            <p>
+              Our service area encompasses the most prestigious postcodes in London, including
+              Mayfair (W1), Westminster (SW1), Belgravia (SW1X), Knightsbridge (SW1X), Kensington
+              (W8), Chelsea (SW3), and Marylebone (W1U). We are familiar with the distinct
+              architectural character of Mayfair — from Georgian townhouses on{" "}
+              <strong>Berkeley Square</strong> and <strong>Grosvenor Square</strong> to modern
+              residential developments near <strong>Park Lane</strong> and luxury hotel properties
+              around <strong>Shepherd Market</strong>.
+            </p>
+            <p>
+              Our certified locksmith technicians are DBS checked and carry full public liability
+              insurance. We are trained to work with all major lock manufacturers including Yale,
+              Chubb, Mul-T-Lock, Abloy, and ERA. Our emergency response team operates 24 hours a
+              day, 7 days a week, 365 days a year, with an average response time of 15 to 30
+              minutes anywhere in our service area.
+            </p>
+            <p>
+              Vigdis Locksmith London holds a{" "}
+              <strong>5.0-star Google rating based on {BUSINESS.reviewCount} customer reviews</strong>,
+              reflecting our commitment to quality workmanship, fair pricing, and outstanding
+              customer service. We provide transparent, fixed-price quotes before beginning any
+              work, with no hidden charges and no call-out fees.
+            </p>
+            <p>
+              Whether you are locked out of your home near <strong>Oxford Street</strong>, need a
+              commercial lock upgrade on <strong>Bond Street</strong>, or require a smart lock
+              installation in a Belgravia mansion, Vigdis Locksmith London is the local expert you
+              can trust. Call us on{" "}
+              <a
+                href={`tel:${BUSINESS.phone}`}
+                className="text-red-600 font-semibold hover:underline"
+              >
+                {BUSINESS.phoneDisplay}
+              </a>{" "}
+              for immediate assistance.
+            </p>
+          </div>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2 text-red-600 font-semibold hover:text-red-700 transition-colors"
+            >
+              Learn more about us <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 text-gray-600 font-semibold hover:text-gray-900 transition-colors"
+            >
+              Contact us <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
