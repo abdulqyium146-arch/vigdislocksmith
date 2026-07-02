@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Phone, Clock, Shield, CheckCircle, ArrowRight } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
-import { getFAQSchema, getBreadcrumbSchema, getServiceSchema } from "@/lib/schema";
+import { getFAQSchema, getBreadcrumbSchema, getServiceSchema, getHowToSchema, getSpeakableSchema } from "@/lib/schema";
 import SchemaScript from "@/components/SchemaScript";
 import ReviewCard from "@/components/ReviewCard";
 import FAQItem from "@/components/FAQItem";
@@ -102,6 +102,20 @@ export default function EmergencyLocksmithPage() {
       <SchemaScript schema={serviceSchema} />
       <SchemaScript schema={getFAQSchema(faqs)} />
       <SchemaScript schema={getBreadcrumbSchema(breadcrumbs)} />
+      <SchemaScript schema={getHowToSchema(
+        "How to Get Emergency Locksmith Help in Mayfair",
+        "Step-by-step guide to getting emergency locksmith assistance in Mayfair and Central London from Vigdis Locksmith London.",
+        [
+          { name: "Call Vigdis Locksmith London", text: "Call +44 20 3670 6551 immediately. Our team answers 24/7. Tell us your location and the nature of the problem. We will give you a fixed price quote on the phone." },
+          { name: "Confirm Your Location", text: "Give us your exact address in Mayfair or Central London. Stay by your property if it is safe to do so. We will confirm your postcode and dispatch the nearest available locksmith." },
+          { name: "Locksmith Dispatched", text: "The nearest Vigdis locksmith is dispatched immediately to your location. Average arrival time in Mayfair is 15-30 minutes." },
+          { name: "Locksmith Arrives and Assesses", text: "Your locksmith arrives, shows ID, and assesses the situation. They will confirm the agreed price before starting any work." },
+          { name: "Lock Opened or Repaired", text: "Using non-destructive entry techniques, the locksmith opens your lock without damage. If the lock needs replacing, new lock options are provided at a transparent price." },
+          { name: "Payment on Completion", text: "Pay the agreed fixed price on completion by cash, credit card, or debit card. All work is guaranteed." },
+        ],
+        "PT30M"
+      )} />
+      <SchemaScript schema={getSpeakableSchema(`${BUSINESS.url}/services/emergency-locksmith`)} />
 
       {/* Hero */}
       <section className="bg-slate-900 text-white py-16 md:py-24">

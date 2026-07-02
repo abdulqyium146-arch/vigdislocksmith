@@ -2,7 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Phone, Clock, Shield, Star, Zap, Users, CheckCircle, MapPin, ArrowRight } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
-import { getFAQSchema, getBreadcrumbSchema } from "@/lib/schema";
+import {
+  getFAQSchema,
+  getBreadcrumbSchema,
+  getServiceItemListSchema,
+  getSpeakableSchema,
+  getDefinedTermSetSchema,
+  getAggregateOfferSchema,
+  getOrganizationSchema,
+} from "@/lib/schema";
 import SchemaScript from "@/components/SchemaScript";
 import ReviewCard from "@/components/ReviewCard";
 import ServiceCard from "@/components/ServiceCard";
@@ -132,6 +140,11 @@ export default function HomePage() {
     <>
       <SchemaScript schema={getFAQSchema(faqs)} />
       <SchemaScript schema={getBreadcrumbSchema(breadcrumbs)} />
+      <SchemaScript schema={getServiceItemListSchema()} />
+      <SchemaScript schema={getSpeakableSchema(BUSINESS.url)} />
+      <SchemaScript schema={getDefinedTermSetSchema()} />
+      <SchemaScript schema={getAggregateOfferSchema()} />
+      <SchemaScript schema={getOrganizationSchema()} />
 
       {/* HERO */}
       <section className="relative bg-slate-900 text-white overflow-hidden">
