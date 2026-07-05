@@ -1,11 +1,3 @@
-# Vigdis Locksmith
-
-**Phone: +44 7984 547185**
-
-Professional locksmith services available 24/7. Fast response, no hidden charges.
-
----
-
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

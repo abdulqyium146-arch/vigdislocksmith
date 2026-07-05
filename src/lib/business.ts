@@ -1,0 +1,36 @@
+export const BUSINESS = {
+  name: "Vigdis Locksmith London",
+  tagline: "Mayfair's Most Trusted Locksmith",
+  phone: "+44 7984 547185",
+  phoneDisplay: "+44 7984 547185",
+  whatsapp: "447984547185",
+  email: "info@vigdis.shop",
+  address: {
+    street: "10-11 Park Place",
+    city: "London",
+    postcode: "SW1A 1LP",
+    country: "United Kingdom",
+    full: "10-11 Park Place, London, SW1A 1LP",
+  },
+  geo: { lat: 51.5037, lng: -0.1420 },
+  rating: 5.0,
+  reviewCount: 247,
+  url: "https://vigdis.shop",
+  established: 2009,
+  responseTime: "15-30 minutes",
+  availability: "24/7/365",
+  serviceAreas: [
+    "Mayfair","Westminster","Belgravia","Knightsbridge","Soho",
+    "Marylebone","Pimlico","Victoria","Paddington","Chelsea","Kensington","Central London"
+  ],
+  services: [
+    { slug: "emergency-locksmith", name: "Emergency Locksmith", icon: "🚨" },
+    { slug: "24-hour-locksmith", name: "24 Hour Locksmith", icon: "🕐" },
+    { slug: "lock-repair", name: "Lock Repair", icon: "🔧" },
+    { slug: "lock-replacement", name: "Lock Replacement", icon: "🔒" },
+    { slug: "key-cutting", name: "Key Cutting", icon: "🗝️" },
+    { slug: "residential-locksmith", name: "Residential Locksmith", icon: "🏠" },
+    { slug: "commercial-locksmith", name: "Commercial Locksmith", icon: "🏢" },
+    { slug: "smart-lock-installation", name: "Smart Lock Installation", icon: "📱" },
+  ],
+} as const;
