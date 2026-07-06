@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { BUSINESS } from "@/lib/business";
 import { getLocalBusinessSchema, getWebSiteSchema, getDatasetSchema } from "@/lib/schema";
@@ -138,6 +139,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="pt-[88px]">{children}</main>
         <Footer />
         <FloatingCTA />
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-JX7DY7JG68"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-JX7DY7JG68');
+        `}</Script>
       </body>
     </html>
   );
