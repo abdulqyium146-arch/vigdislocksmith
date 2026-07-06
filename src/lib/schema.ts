@@ -1,4 +1,4 @@
-import { BUSINESS } from "./business";
+import { BUSINESS, REVIEWS } from "./business";
 
 const DAYS = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"] as const;
 const BASE = BUSINESS.url;
@@ -90,11 +90,6 @@ export function getLocalBusinessSchema() {
       },
     ],
 
-    areaServed: BUSINESS.serviceAreas.map((area) => ({
-      "@type": "Place",
-      name: `${area}, London`,
-    })),
-
     // Knowledge Graph entity associations
     knowsAbout: [
       "Lock repair", "Lock replacement", "Emergency locksmith", "Key cutting",
@@ -139,8 +134,60 @@ export function getLocalBusinessSchema() {
       height: "60",
     },
 
-    sameAs: [
-      "https://www.google.com/maps/search/Vigdis+Locksmith+London+Mayfair",
+    sameAs: BUSINESS.sameAs,
+
+    hasMap: BUSINESS.hasMap,
+
+    founder: {
+      "@type": "Person",
+      "@id": `${BASE}/#founder`,
+      name: BUSINESS.founder,
+      jobTitle: BUSINESS.founderTitle,
+      description: BUSINESS.founderBio,
+      worksFor: { "@id": `${BASE}/#business` },
+      knowsAbout: [
+        "Locksmith services", "Emergency locksmith", "Lock repair",
+        "Lock replacement", "Key cutting", "Smart lock installation",
+        "BS3621 British Standard locks", "Non-destructive entry",
+        "Mayfair London", "Central London security",
+      ],
+    },
+
+    employee: {
+      "@type": "Organization",
+      name: `${BUSINESS.name} Technician Team`,
+      numberOfEmployees: { "@type": "QuantitativeValue", value: BUSINESS.numberOfEmployees },
+    },
+
+    numberOfEmployees: { "@type": "QuantitativeValue", value: BUSINESS.numberOfEmployees },
+
+    hasCredential: [
+      { "@type": "EducationalOccupationalCredential", credentialCategory: "DBS Checked", name: "DBS (Disclosure and Barring Service) Check — all technicians" },
+      { "@type": "EducationalOccupationalCredential", credentialCategory: "Professional Qualification", name: "City & Guilds Level 3 Locksmith Qualification" },
+      { "@type": "EducationalOccupationalCredential", credentialCategory: "Insurance", name: "Public Liability Insurance up to £2,000,000" },
+      { "@type": "EducationalOccupationalCredential", credentialCategory: "Industry Standard", name: "BS3621 British Standard Lock Expertise" },
+    ],
+
+    // Individual reviews (required for star-rating rich results in SERP)
+    review: REVIEWS.map((r) => ({
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: String(r.ratingValue),
+        bestRating: "5",
+        worstRating: "1",
+      },
+      author: { "@type": "Person", name: r.author },
+      reviewBody: r.reviewBody,
+      datePublished: r.datePublished,
+      itemReviewed: { "@id": `${BASE}/#business` },
+      locationCreated: { "@type": "Place", name: r.locationName },
+    })),
+
+    // Hyper-local postcode areaServed (strong geo entity signal)
+    areaServed: [
+      ...BUSINESS.serviceAreas.map((area) => ({ "@type": "Place", name: `${area}, London` })),
+      ...BUSINESS.postcodes.map((pc) => ({ "@type": "Place", name: pc })),
     ],
   };
 }
@@ -205,10 +252,44 @@ export function getWebPageSchema(url: string, name: string, description: string)
     name,
     description,
     inLanguage: "en-GB",
+    dateModified: new Date().toISOString().split("T")[0],
     isPartOf: { "@id": `${BASE}/#website` },
     about: { "@id": `${BASE}/#business` },
+    author: { "@id": `${BASE}/#founder` },
     publisher: { "@id": `${BASE}/#business` },
     breadcrumb: { "@id": `${url}#breadcrumb` },
+  };
+}
+
+export function getFounderSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${BASE}/#founder`,
+    name: BUSINESS.founder,
+    jobTitle: BUSINESS.founderTitle,
+    description: BUSINESS.founderBio,
+    worksFor: {
+      "@id": `${BASE}/#business`,
+      "@type": "Locksmith",
+      name: BUSINESS.name,
+    },
+    affiliation: { "@id": `${BASE}/#business` },
+    url: `${BASE}/about`,
+    sameAs: [`${BASE}/about`],
+    knowsAbout: [
+      "Emergency locksmith services",
+      "Lock repair and replacement",
+      "Non-destructive entry techniques",
+      "BS3621 British Standard locks",
+      "Mayfair and Central London security",
+      "Smart lock installation",
+      "Anti-snap lock cylinders",
+    ],
+    hasCredential: [
+      { "@type": "EducationalOccupationalCredential", name: "City & Guilds Level 3 Locksmith Qualification" },
+      { "@type": "EducationalOccupationalCredential", name: "DBS Checked" },
+    ],
   };
 }
 

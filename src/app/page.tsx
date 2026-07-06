@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Phone, Clock, Shield, Star, Zap, Users, CheckCircle, MapPin, ArrowRight } from "lucide-react";
-import { BUSINESS } from "@/lib/business";
+import { BUSINESS, REVIEWS } from "@/lib/business";
 import {
   getFAQSchema,
   getBreadcrumbSchema,
@@ -10,6 +10,8 @@ import {
   getDefinedTermSetSchema,
   getAggregateOfferSchema,
   getOrganizationSchema,
+  getReviewSchema,
+  getFounderSchema,
 } from "@/lib/schema";
 import SchemaScript from "@/components/SchemaScript";
 import ReviewCard from "@/components/ReviewCard";
@@ -57,29 +59,13 @@ const faqs = [
   },
 ];
 
-const reviews = [
-  {
-    name: "James H.",
-    review:
-      "Locked out at midnight near Berkeley Square. Called Vigdis and a locksmith arrived in under 20 minutes. Professional, friendly and fair pricing. Couldn't recommend more highly.",
-    date: "March 2025",
-    location: "Mayfair, London",
-  },
-  {
-    name: "Sophie W.",
-    review:
-      "Brilliant service. Had my locks changed after moving into a new flat near Grosvenor Square. The technician was knowledgeable, explained everything and left no mess. Five stars without question.",
-    date: "January 2025",
-    location: "Westminster, London",
-  },
-  {
-    name: "Robert T.",
-    review:
-      "Used Vigdis for our office building on Park Lane. They upgraded all our commercial locks to high-security cylinders. Very efficient team, competitive price, excellent result.",
-    date: "February 2025",
-    location: "Mayfair, London",
-  },
-];
+// Derived from canonical REVIEWS in business.ts — keeps UI + schema in sync
+const reviews = REVIEWS.slice(0, 3).map((r) => ({
+  name: r.author,
+  review: r.reviewBody,
+  date: new Date(r.datePublished).toLocaleDateString("en-GB", { month: "long", year: "numeric" }),
+  location: r.locationName,
+}));
 
 const serviceDescriptions: Record<string, string> = {
   "emergency-locksmith":
@@ -145,6 +131,8 @@ export default function HomePage() {
       <SchemaScript schema={getDefinedTermSetSchema()} />
       <SchemaScript schema={getAggregateOfferSchema()} />
       <SchemaScript schema={getOrganizationSchema()} />
+      <SchemaScript schema={getReviewSchema([...REVIEWS])} />
+      <SchemaScript schema={getFounderSchema()} />
 
       {/* HERO */}
       <section className="relative bg-slate-900 text-white overflow-hidden">

@@ -1,12 +1,34 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, CheckCircle } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
+  const trustItems = [
+    "DBS Checked",
+    "City & Guilds Qualified",
+    "£2M Insured",
+    "BS3621 Experts",
+    "Est. 2009",
+    "5★ Rated",
+  ];
+
   return (
     <footer className="bg-slate-900 text-gray-300">
+      {/* Trust badge strip */}
+      <div className="border-b border-white/10 bg-slate-800/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+            {trustItems.map((item) => (
+              <li key={item} className="flex items-center gap-1.5 text-xs text-gray-400">
+                <CheckCircle className="w-3.5 h-3.5 text-green-500 flex-shrink-0" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
@@ -62,6 +84,23 @@ export default function Footer() {
 
           {/* Service Areas */}
           <div>
+            <h3 className="text-white font-bold text-sm uppercase tracking-wider mb-4">
+              Company
+            </h3>
+            <ul className="space-y-2 mb-6">
+              {[
+                { label: "About Us", href: "/about" },
+                { label: "Reviews", href: "/reviews" },
+                { label: "FAQ", href: "/faq" },
+                { label: "Contact", href: "/contact" },
+              ].map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-gray-400 hover:text-white text-sm transition-colors">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
             <h3 className="text-white font-bold text-sm uppercase tracking-wider mb-4">
               Service Areas
             </h3>
