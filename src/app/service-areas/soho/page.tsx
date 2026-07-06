@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Phone, MapPin, ArrowRight } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
 import { getBreadcrumbSchema, getAreaSchema } from "@/lib/schema";
+import NearbyAreaLinks from "@/components/NearbyAreaLinks";
 import SchemaScript from "@/components/SchemaScript";
 
 export const metadata: Metadata = {
@@ -64,6 +65,8 @@ export default function SohoPage() {
           </p>
         </div>
       </section>
+      <NearbyAreaLinks currentArea="soho" />
+
       <section className="bg-red-600 py-14">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Need a Locksmith in Soho?</h2>

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Phone } from "lucide-react";
+import { Phone, ArrowRight } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
 import { getFAQSchema, getBreadcrumbSchema } from "@/lib/schema";
 import SchemaScript from "@/components/SchemaScript";
@@ -104,6 +104,53 @@ export default function FAQPage() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Browse by service */}
+      <section className="py-14 bg-white border-t border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Browse Our Services</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
+            {BUSINESS.services.map((s) => (
+              <Link
+                key={s.slug}
+                href={`/services/${s.slug}`}
+                className="flex items-center gap-2 bg-gray-50 hover:bg-red-50 border border-gray-200 hover:border-red-300 rounded-xl p-3 text-sm font-medium text-gray-700 hover:text-red-600 transition-all"
+              >
+                <span>{s.icon}</span>
+                <span className="leading-tight">{s.name}</span>
+              </Link>
+            ))}
+          </div>
+          <h2 className="text-2xl font-bold text-gray-900 mb-6">Browse by Area</h2>
+          <div className="flex flex-wrap gap-3">
+            {[
+              { name: "Mayfair", slug: "mayfair" },
+              { name: "Westminster", slug: "westminster" },
+              { name: "Belgravia", slug: "belgravia" },
+              { name: "Knightsbridge", slug: "knightsbridge" },
+              { name: "Chelsea", slug: "chelsea" },
+              { name: "Kensington", slug: "kensington" },
+              { name: "Soho", slug: "soho" },
+              { name: "Marylebone", slug: "marylebone" },
+              { name: "Victoria", slug: "victoria" },
+              { name: "Paddington", slug: "paddington" },
+            ].map(({ name, slug }) => (
+              <Link
+                key={slug}
+                href={`/service-areas/${slug}`}
+                className="bg-red-50 border border-red-200 text-red-700 hover:bg-red-600 hover:text-white hover:border-red-600 px-4 py-2 rounded-full text-sm font-medium transition-all"
+              >
+                {name}
+              </Link>
+            ))}
+          </div>
+          <div className="mt-6">
+            <Link href="/service-areas" className="inline-flex items-center gap-2 text-red-600 font-semibold hover:text-red-700 text-sm transition-colors">
+              All service areas <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 

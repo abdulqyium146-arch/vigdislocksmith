@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Phone, Star } from "lucide-react";
+import { Phone, Star, ArrowRight } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
 import { getBreadcrumbSchema } from "@/lib/schema";
 import SchemaScript from "@/components/SchemaScript";
@@ -128,6 +128,61 @@ export default function ReviewsPage() {
             {reviews.map((r) => (
               <ReviewCard key={r.name + r.date} name={r.name} review={r.review} date={r.date} location={r.location} />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Internal links: services + areas */}
+      <section className="py-14 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+              <h2 className="text-xl font-bold text-gray-900 mb-5">Services Reviewed</h2>
+              <div className="space-y-2">
+                {BUSINESS.services.map((s) => (
+                  <Link
+                    key={s.slug}
+                    href={`/services/${s.slug}`}
+                    className="flex items-center gap-3 text-gray-700 hover:text-red-600 transition-colors text-sm py-1"
+                  >
+                    <span>{s.icon}</span>
+                    <span className="hover:underline">{s.name}</span>
+                    <ArrowRight className="w-3.5 h-3.5 ml-auto text-gray-400" />
+                  </Link>
+                ))}
+                <Link href="/services" className="inline-flex items-center gap-2 text-red-600 font-semibold text-sm mt-3 hover:text-red-700 transition-colors">
+                  All services <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+            <div>
+              <h2 className="text-xl font-bold text-gray-900 mb-5">Areas Reviewed</h2>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  { name: "Mayfair", slug: "mayfair" },
+                  { name: "Westminster", slug: "westminster" },
+                  { name: "Belgravia", slug: "belgravia" },
+                  { name: "Knightsbridge", slug: "knightsbridge" },
+                  { name: "Chelsea", slug: "chelsea" },
+                  { name: "Kensington", slug: "kensington" },
+                  { name: "Soho", slug: "soho" },
+                  { name: "Marylebone", slug: "marylebone" },
+                  { name: "Victoria", slug: "victoria" },
+                  { name: "Paddington", slug: "paddington" },
+                ].map(({ name, slug }) => (
+                  <Link
+                    key={slug}
+                    href={`/service-areas/${slug}`}
+                    className="bg-red-50 border border-red-200 text-red-700 hover:bg-red-600 hover:text-white hover:border-red-600 px-3 py-1.5 rounded-full text-sm font-medium transition-all"
+                  >
+                    {name}
+                  </Link>
+                ))}
+              </div>
+              <Link href="/service-areas" className="inline-flex items-center gap-2 text-red-600 font-semibold text-sm mt-4 hover:text-red-700 transition-colors">
+                All areas <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

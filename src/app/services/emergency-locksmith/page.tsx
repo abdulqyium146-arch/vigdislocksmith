@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Phone, Clock, Shield, CheckCircle, ArrowRight } from "lucide-react";
+import LinkedAreaChips from "@/components/LinkedAreaChips";
+import RelatedServices from "@/components/RelatedServices";
 import { BUSINESS } from "@/lib/business";
 import { getFAQSchema, getBreadcrumbSchema, getServiceSchema, getHowToSchema, getSpeakableSchema } from "@/lib/schema";
 import SchemaScript from "@/components/SchemaScript";
@@ -247,29 +249,8 @@ export default function EmergencyLocksmithPage() {
         </div>
       </section>
 
-      {/* Service Areas */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">
-            Emergency Locksmith Coverage Area
-          </h2>
-          <p className="text-gray-600 mb-8">
-            Our emergency locksmith service covers Mayfair and all surrounding Central London
-            areas. We reach every postcode in our coverage zone within our guaranteed 15-30
-            minute window.
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            {BUSINESS.serviceAreas.map((area) => (
-              <span
-                key={area}
-                className="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium"
-              >
-                {area}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+      <LinkedAreaChips serviceName="Emergency Locksmith" />
+      <RelatedServices currentSlug="emergency-locksmith" />
 
       {/* Reviews */}
       <section className="py-16 bg-gray-50">

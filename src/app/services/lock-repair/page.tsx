@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Phone, CheckCircle, ArrowRight } from "lucide-react";
+import RelatedServices from "@/components/RelatedServices";
+import LinkedAreaChips from "@/components/LinkedAreaChips";
 import { BUSINESS } from "@/lib/business";
 import { getBreadcrumbSchema, getServiceSchema, getFAQSchema, getSpeakableSchema, getWebPageSchema } from "@/lib/schema";
 import SchemaScript from "@/components/SchemaScript";
@@ -110,6 +112,9 @@ export default function LockRepairPage() {
           </div>
         </div>
       </section>
+
+      <LinkedAreaChips serviceName="Lock Repair" />
+      <RelatedServices currentSlug="lock-repair" />
 
       <section className="bg-red-600 py-14">
         <div className="max-w-4xl mx-auto px-4 text-center">

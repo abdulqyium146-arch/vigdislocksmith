@@ -237,6 +237,8 @@ export default function MayfairPage() {
         </div>
       </section>
 
+      <NearbyAreaLinks currentArea="mayfair" />
+
       <section className="bg-red-600 py-14">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Need a Locksmith in Mayfair?</h2>

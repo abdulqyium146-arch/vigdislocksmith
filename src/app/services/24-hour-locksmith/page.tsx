@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Phone, CheckCircle, ArrowRight } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
 import { getBreadcrumbSchema, getServiceSchema, getFAQSchema, getSpeakableSchema, getWebPageSchema } from "@/lib/schema";
+import LinkedAreaChips from "@/components/LinkedAreaChips";
+import RelatedServices from "@/components/RelatedServices";
 import SchemaScript from "@/components/SchemaScript";
 import FAQItem from "@/components/FAQItem";
 
@@ -112,6 +114,9 @@ export default function TwentyFourHourPage() {
           </div>
         </div>
       </section>
+
+      <LinkedAreaChips serviceName="24 Hour Locksmith" />
+      <RelatedServices currentSlug="24-hour-locksmith" />
 
       <section className="bg-red-600 py-14">
         <div className="max-w-4xl mx-auto px-4 text-center">

@@ -3,6 +3,8 @@ import Link from "next/link";
 import { Phone, CheckCircle, ArrowRight } from "lucide-react";
 import { BUSINESS } from "@/lib/business";
 import { getBreadcrumbSchema, getServiceSchema, getSpeakableSchema, getWebPageSchema } from "@/lib/schema";
+import LinkedAreaChips from "@/components/LinkedAreaChips";
+import RelatedServices from "@/components/RelatedServices";
 import SchemaScript from "@/components/SchemaScript";
 
 export const metadata: Metadata = {
@@ -79,6 +81,9 @@ export default function SmartLockPage() {
           </div>
         </div>
       </section>
+
+      <LinkedAreaChips serviceName="Smart Lock Installation" />
+      <RelatedServices currentSlug="smart-lock-installation" />
 
       <section className="bg-red-600 py-14">
         <div className="max-w-4xl mx-auto px-4 text-center">
