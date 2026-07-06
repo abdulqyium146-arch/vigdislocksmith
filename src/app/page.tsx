@@ -410,7 +410,34 @@ export default function HomePage() {
 
       {/* ABOUT / GEO ENTITY */}
       <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* Map column */}
+            <div className="order-last lg:order-first">
+              <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm w-full h-[420px] sticky top-28">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.3781197921217!2d-0.14248922414482484!3d51.506278610786225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760578b7015dbf%3A0x3e49f5bced8f730!2sVigdis%20Locksmith%20London!5e0!3m2!1sen!2s!4v1783348745961!5m2!1sen!2s"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  title="Vigdis Locksmith London on Google Maps"
+                />
+              </div>
+              <a
+                href={`https://www.google.com/maps/dir/?api=1&destination=${BUSINESS.geo.lat},${BUSINESS.geo.lng}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center gap-2 text-sm text-red-600 font-semibold hover:text-red-700 transition-colors"
+              >
+                <MapPin className="w-4 h-4" />
+                Get directions to {BUSINESS.address.full}
+              </a>
+            </div>
+            {/* Text column */}
+            <div>
           <h2 className="text-3xl font-bold text-gray-900 mb-6">
             About Vigdis Locksmith London
           </h2>
@@ -473,6 +500,8 @@ export default function HomePage() {
               Contact us <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
+            </div>{/* end text column */}
+          </div>{/* end grid */}
         </div>
       </section>
     </>

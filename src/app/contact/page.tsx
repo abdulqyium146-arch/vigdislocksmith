@@ -42,6 +42,39 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* MAP */}
+      <section className="bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900">Find Us in Mayfair</h2>
+              <p className="text-gray-500 text-sm mt-1">{BUSINESS.address.full}</p>
+            </div>
+            <a
+              href={`https://www.google.com/maps/dir/?api=1&destination=${BUSINESS.geo.lat},${BUSINESS.geo.lng}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-semibold px-5 py-2.5 rounded-xl text-sm transition-colors"
+            >
+              <MapPin className="w-4 h-4" />
+              Get Directions
+            </a>
+          </div>
+          <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm w-full h-[420px]">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.3781197921217!2d-0.14248922414482484!3d51.506278610786225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760578b7015dbf%3A0x3e49f5bced8f730!2sVigdis%20Locksmith%20London!5e0!3m2!1sen!2s!4v1783348745961!5m2!1sen!2s"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              title="Vigdis Locksmith London — Mayfair location map"
+            />
+          </div>
+        </div>
+      </section>
+
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
