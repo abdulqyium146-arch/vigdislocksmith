@@ -22,7 +22,7 @@ import TrustBadges from "@/components/TrustBadges";
 export const metadata: Metadata = {
   title: "Locksmith Mayfair | Vigdis Locksmith London | 24/7 Emergency",
   description:
-    "Expert locksmith in Mayfair available 24/7. Emergency lockouts, lock repair, lock replacement & key cutting. ★★★★★ 5.0 rated with 247 reviews. Call +44 7984 547185 now.",
+    "Locksmith Mayfair — 24/7 emergency service. Locked out? We arrive in 15 minutes across W1J, W1K & W1S. Lock repair, replacement & key cutting. ★★★★★ 5.0, 247 reviews. No call-out fee.",
   alternates: { canonical: "https://vigdis.shop" },
 };
 
@@ -56,6 +56,16 @@ const faqs = [
     question: "Can you open any type of lock?",
     answer:
       "Our expert locksmiths can open virtually all lock types including Yale, Mortice, Deadbolt, Euro Cylinder, and high-security locks without causing damage. We use specialist non-destructive entry techniques wherever possible.",
+  },
+  {
+    question: "Which postcodes in Mayfair does your locksmith service cover?",
+    answer:
+      "We cover all Mayfair postcodes — W1J (Piccadilly and Green Park area), W1K (Grosvenor Square and Park Lane), and W1S (Bond Street and Oxford Street side). We also serve the adjacent Westminster postcodes SW1A and SW1X. There is no call-out charge across any Mayfair postcode.",
+  },
+  {
+    question: "Is there a call-out fee for a locksmith in Mayfair?",
+    answer:
+      "No. Vigdis Locksmith London charges no call-out fee for any job in Mayfair or Central London. We provide a free, fixed-price quote before starting work — you always know exactly what you will pay before we pick up a tool.",
   },
 ];
 
@@ -284,14 +294,126 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* MAYFAIR GEO COVERAGE — postcode + street signals for "locksmith mayfair" */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Locksmith Mayfair — Covering Every Postcode in W1
+              </h2>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Vigdis Locksmith London is based in the heart of Mayfair and covers every street
+                and postcode in the W1 district. Our mobile locksmith units serve{" "}
+                <strong>W1J</strong> (Piccadilly, Green Park, St James&apos;s),{" "}
+                <strong>W1K</strong> (Grosvenor Square, Park Lane, North Row), and{" "}
+                <strong>W1S</strong> (Bond Street, Brook Street, Maddox Street) — with an average
+                response time of <strong>15 minutes</strong> to any address.
+              </p>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                We respond to locksmith calls on every major Mayfair street:{" "}
+                <strong>Berkeley Square</strong>, <strong>Grosvenor Square</strong>,{" "}
+                <strong>Park Lane</strong>, <strong>Bond Street</strong>,{" "}
+                <strong>Brook Street</strong>, <strong>Curzon Street</strong>,{" "}
+                <strong>Hill Street</strong>, <strong>Mount Street</strong>,{" "}
+                <strong>South Audley Street</strong>, <strong>Hay Hill</strong>, and{" "}
+                <strong>Shepherd Market</strong>. Residential townhouses, luxury apartment blocks,
+                hotels, and commercial premises — we cover them all.
+              </p>
+              <p className="text-gray-700 leading-relaxed mb-6">
+                There is <strong>no call-out charge</strong> for any Mayfair address. We give you
+                a fixed price over the phone before we arrive — no surprises, no hidden fees.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link
+                  href="/service-areas/mayfair"
+                  className="inline-flex items-center gap-2 bg-red-600 text-white hover:bg-red-700 font-semibold py-3 px-6 rounded-xl transition-colors"
+                >
+                  Locksmith Mayfair — Full Coverage
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <a
+                  href={`tel:${BUSINESS.phone}`}
+                  className="inline-flex items-center gap-2 border border-red-600 text-red-600 hover:bg-red-50 font-semibold py-3 px-6 rounded-xl transition-colors"
+                >
+                  <Phone className="w-4 h-4" />
+                  Call Now
+                </a>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                <h3 className="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wide">
+                  Mayfair Postcodes We Serve
+                </h3>
+                <ul className="space-y-2">
+                  {[
+                    "W1J — Piccadilly / Green Park",
+                    "W1K — Grosvenor Sq / Park Lane",
+                    "W1S — Bond Street / Brook St",
+                    "SW1A — St James's / Westminster",
+                    "SW1X — Belgravia / Knightsbridge",
+                  ].map((pc) => (
+                    <li key={pc} className="flex items-center gap-2 text-sm text-gray-700">
+                      <MapPin className="w-3.5 h-3.5 text-red-600 flex-shrink-0" />
+                      {pc}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                <h3 className="font-bold text-gray-900 mb-3 text-sm uppercase tracking-wide">
+                  Our Mayfair Promise
+                </h3>
+                <ul className="space-y-2">
+                  {[
+                    "15-minute average response",
+                    "24/7 — including bank holidays",
+                    "No call-out charge in W1",
+                    "Fixed price before we start",
+                    "DBS checked technicians",
+                    "All work fully guaranteed",
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-sm text-gray-700">
+                      <CheckCircle className="w-3.5 h-3.5 text-green-600 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="bg-red-50 rounded-xl p-5 border border-red-100 sm:col-span-2">
+                <h3 className="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wide">
+                  Mayfair Locksmith — Fast Facts
+                </h3>
+                <div className="grid grid-cols-2 gap-x-6 gap-y-2">
+                  {[
+                    { label: "Response time", value: "15 min avg." },
+                    { label: "Operating hours", value: "24/7/365" },
+                    { label: "Google rating", value: "5.0 ★ (247 reviews)" },
+                    { label: "Established", value: "Since 2009" },
+                    { label: "Call-out fee", value: "None" },
+                    { label: "Quote", value: "Free & fixed upfront" },
+                  ].map((item) => (
+                    <div key={item.label} className="flex justify-between items-center py-1 border-b border-red-100 last:border-0">
+                      <span className="text-xs text-gray-600">{item.label}</span>
+                      <span className="text-xs font-semibold text-gray-900">{item.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SERVICE AREAS */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <h2 className="section-heading">We Cover All of Central London</h2>
+            <h2 className="section-heading">Locksmith Mayfair &amp; All of Central London</h2>
             <p className="section-subheading">
-              Vigdis Locksmith London provides fast locksmith services across all major areas of
-              Central London. No call-out charge anywhere in our service area.
+              Based in Mayfair, Vigdis Locksmith London provides fast 24/7 locksmith services
+              across all major areas of Central London. No call-out charge anywhere in our service area.
             </p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -309,9 +431,19 @@ export default function HomePage() {
                   </span>
                 </div>
               );
+              const mayfairCard = slug === "mayfair" ? (
+                <div className="flex items-center gap-3 bg-red-50 rounded-xl p-4 border-2 border-red-400 shadow-sm group">
+                  <MapPin className="w-4 h-4 text-red-600 flex-shrink-0" />
+                  <div className="flex-1 min-w-0">
+                    <span className="font-bold text-red-700 text-sm">{area}</span>
+                    <span className="block text-xs text-red-500">Our base — W1J · W1K · W1S</span>
+                  </div>
+                </div>
+              ) : card;
+
               return linked ? (
                 <Link key={area} href={`/service-areas/${slug}`}>
-                  {card}
+                  {slug === "mayfair" ? mayfairCard : card}
                 </Link>
               ) : (
                 <div key={area}>{card}</div>
@@ -438,10 +570,12 @@ export default function HomePage() {
               Central London.
             </p>
             <p>
-              Our service area encompasses the most prestigious postcodes in London, including
-              Mayfair (W1), Westminster (SW1), Belgravia (SW1X), Knightsbridge (SW1X), Kensington
-              (W8), Chelsea (SW3), and Marylebone (W1U). We are familiar with the distinct
-              architectural character of Mayfair — from Georgian townhouses on{" "}
+              Our service area covers the most prestigious postcodes in London. In Mayfair alone
+              we cover <strong>W1J</strong>, <strong>W1K</strong>, and <strong>W1S</strong> —
+              from Park Lane in the west to Bond Street in the east. Across the wider area we serve
+              Westminster (SW1A), Belgravia (SW1X), Knightsbridge (SW1X), Kensington (W8), Chelsea
+              (SW3), and Marylebone (W1U). We know the distinct architectural character of Mayfair
+              — from Georgian townhouses on{" "}
               <strong>Berkeley Square</strong> and <strong>Grosvenor Square</strong> to modern
               residential developments near <strong>Park Lane</strong> and luxury hotel properties
               around <strong>Shepherd Market</strong>.
