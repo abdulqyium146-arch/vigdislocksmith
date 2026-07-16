@@ -46,7 +46,7 @@ const nextConfig: NextConfig = {
               "font-src 'self' https://fonts.gstatic.com",
               "img-src 'self' data: blob: https:",
               "connect-src 'self' https://www.google-analytics.com https://vitals.vercel-insights.com",
-              "frame-src 'none'",
+              "frame-src https://www.google.com https://www.google.co.uk",
               "object-src 'none'",
               "base-uri 'self'",
               "form-action 'self'",
