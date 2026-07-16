@@ -470,14 +470,6 @@ export function getReviewSchema(reviews: {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": `${BASE}/#business`,
-    name: BUSINESS.name,
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: String(BUSINESS.rating),
-      reviewCount: String(BUSINESS.reviewCount),
-      bestRating: "5",
-      worstRating: "1",
-    },
     review: reviews.map((r) => ({
       "@type": "Review",
       reviewRating: {

@@ -16,35 +16,31 @@ export const metadata: Metadata = {
 const aggregateRatingSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: BUSINESS.name,
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5.0",
-    reviewCount: BUSINESS.reviewCount,
-    bestRating: "5",
-    worstRating: "1",
-  },
+  "@id": `${BUSINESS.url}/#business`,
   review: [
     {
       "@type": "Review",
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5", worstRating: "1" },
       author: { "@type": "Person", name: "James H." },
       reviewBody: "Locked out at midnight near Berkeley Square. Called Vigdis and a locksmith arrived in under 20 minutes. Professional, friendly and fair pricing. Couldn't recommend more highly.",
       datePublished: "2025-03-15",
+      itemReviewed: { "@id": `${BUSINESS.url}/#business` },
     },
     {
       "@type": "Review",
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5", worstRating: "1" },
       author: { "@type": "Person", name: "Sophie W." },
       reviewBody: "Brilliant service. Had my locks changed after moving into a new flat near Grosvenor Square. The technician was knowledgeable, explained everything and left no mess.",
       datePublished: "2025-01-22",
+      itemReviewed: { "@id": `${BUSINESS.url}/#business` },
     },
     {
       "@type": "Review",
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5", worstRating: "1" },
       author: { "@type": "Person", name: "Robert T." },
       reviewBody: "Used Vigdis for our office building on Park Lane. They upgraded all our commercial locks to high-security cylinders. Very efficient team, competitive price.",
       datePublished: "2025-02-10",
+      itemReviewed: { "@id": `${BUSINESS.url}/#business` },
     },
   ],
 };

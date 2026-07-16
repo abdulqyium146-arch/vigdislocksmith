@@ -10,7 +10,6 @@ import {
   getDefinedTermSetSchema,
   getAggregateOfferSchema,
   getOrganizationSchema,
-  getReviewSchema,
   getFounderSchema,
   getWebPageSchema,
   getHowToSchema,
@@ -183,7 +182,6 @@ export default function HomePage() {
       <SchemaScript schema={getDefinedTermSetSchema()} />
       <SchemaScript schema={getAggregateOfferSchema()} />
       <SchemaScript schema={getOrganizationSchema()} />
-      <SchemaScript schema={getReviewSchema([...REVIEWS])} />
       <SchemaScript schema={getFounderSchema()} />
 
       {/* HERO */}
