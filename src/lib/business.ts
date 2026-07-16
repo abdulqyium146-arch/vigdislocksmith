@@ -7,6 +7,8 @@ export const BUSINESS = {
     "Erik Vigdis founded the company in 2009 after 15 years working as a certified locksmith across London. Trained to City & Guilds Level 3, Erik personally vets every technician and sets the quality standards the team holds itself to today. His philosophy is simple: fix what can be fixed, replace only what must be replaced, and never leave a customer unsatisfied.",
   phone: "+44 7984 547185",
   phoneDisplay: "+44 7984 547185",
+  phoneGMB: "020 3670 6551",
+  phoneGMBDisplay: "020 3670 6551",
   whatsapp: "447984547185",
   email: "info@vigdis.shop",
   address: {

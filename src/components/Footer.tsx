@@ -138,6 +138,18 @@ export default function Footer() {
               </li>
               <li>
                 <a
+                  href={`tel:${BUSINESS.phoneGMB}`}
+                  className="flex items-start gap-2.5 text-gray-400 hover:text-white transition-colors group"
+                >
+                  <Phone className="w-4 h-4 text-gray-500 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <span className="block text-sm font-medium text-gray-300">{BUSINESS.phoneGMBDisplay}</span>
+                    <span className="text-xs text-gray-500">Office / GMB Line</span>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a
                   href={`mailto:${BUSINESS.email}`}
                   className="flex items-start gap-2.5 text-gray-400 hover:text-white transition-colors"
                 >
