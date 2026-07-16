@@ -62,14 +62,14 @@ export default function ContactPage() {
           </div>
           <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm w-full h-[420px]">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.3781197921217!2d-0.14248922414482484!3d51.506278610786225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760578b7015dbf%3A0x3e49f5bced8f730!2sVigdis%20Locksmith%20London!5e0!3m2!1sen!2s!4v1783348745961!5m2!1sen!2s"
+              src={BUSINESS.mapEmbedUrl}
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="strict-origin-when-cross-origin"
-              title="Vigdis Locksmith London — Mayfair location map"
+              title="Vigdis Locksmith London — Mayfair, London SW1A 1LP"
             />
           </div>
         </div>

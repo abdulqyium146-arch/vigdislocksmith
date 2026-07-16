@@ -33,8 +33,9 @@ export const BUSINESS = {
   sameAs: [
     "https://www.google.com/maps/search/Vigdis+Locksmith+London+Mayfair",
   ],
-  // Google Maps embed CID-based URL (from the GMB listing)
-  hasMap: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.3781197921217!2d-0.14248922414482484!3d51.506278610786225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760578b7015dbf%3A0x3e49f5bced8f730!2sVigdis%20Locksmith%20London",
+  // Google Maps embed — single source of truth, referenced in all iframes + schema
+  mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.378119792127!2d-0.14248922414479342!3d51.50627861078623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760578b7015dbf%3A0x3e49f5bced8f730!2sVigdis%20Locksmith%20London!5e0!3m2!1sen!2suk!4v1784167117746!5m2!1sen!2suk",
+  hasMap: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.378119792127!2d-0.14248922414479342!3d51.50627861078623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48760578b7015dbf%3A0x3e49f5bced8f730!2sVigdis%20Locksmith%20London!5e0!3m2!1sen!2suk!4v1784167117746!5m2!1sen!2suk",
   // Postcodes covered — used in schema areaServed for hyper-local geo signals
   postcodes: ["W1J", "W1K", "W1S", "W1U", "SW1A", "SW1X", "SW1V", "SW1W", "SW3", "SW7", "W2", "W8", "WC2"],
   credentials: [
