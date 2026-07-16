@@ -6,6 +6,7 @@ import { getBreadcrumbSchema, getFAQSchema } from "@/lib/schema";
 import SchemaScript from "@/components/SchemaScript";
 import ReviewCard from "@/components/ReviewCard";
 import FAQItem from "@/components/FAQItem";
+import NearbyAreaLinks from "@/components/NearbyAreaLinks";
 
 export const metadata: Metadata = {
   title: "Locksmith in Mayfair, London | 24/7 Emergency Service",
