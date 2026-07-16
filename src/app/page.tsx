@@ -12,6 +12,8 @@ import {
   getOrganizationSchema,
   getReviewSchema,
   getFounderSchema,
+  getWebPageSchema,
+  getHowToSchema,
 } from "@/lib/schema";
 import SchemaScript from "@/components/SchemaScript";
 import ReviewCard from "@/components/ReviewCard";
@@ -25,6 +27,25 @@ export const metadata: Metadata = {
     "Locksmith Mayfair — 24/7 emergency service. Locked out? We arrive in 15 minutes across W1J, W1K & W1S. Lock repair, replacement & key cutting. ★★★★★ 5.0, 247 reviews. No call-out fee.",
   alternates: { canonical: "https://vigdis.shop" },
 };
+
+const howToSteps = [
+  {
+    name: "Call our 24/7 emergency line",
+    text: `Call ${BUSINESS.phoneDisplay} any time — day or night, 365 days a year. Tell us your Mayfair address and describe the problem. We'll give you a fixed price quote immediately, with no obligation.`,
+  },
+  {
+    name: "Receive a fixed-price quote",
+    text: "We confirm the exact price before dispatching. No hidden extras, no call-out fee, no surprises. The price you're quoted is the price you pay.",
+  },
+  {
+    name: "Locksmith arrives in Mayfair in 15 minutes",
+    text: "A DBS-checked technician leaves immediately for your address. Our average arrival time anywhere in Mayfair — W1J, W1K, or W1S — is 15 minutes.",
+  },
+  {
+    name: "Lock opened, work guaranteed",
+    text: "We resolve most lockouts using non-destructive entry techniques. All work is fully guaranteed. We don't leave until you're safely inside.",
+  },
+];
 
 const faqs = [
   {
@@ -66,6 +87,16 @@ const faqs = [
     question: "Is there a call-out fee for a locksmith in Mayfair?",
     answer:
       "No. Vigdis Locksmith London charges no call-out fee for any job in Mayfair or Central London. We provide a free, fixed-price quote before starting work — you always know exactly what you will pay before we pick up a tool.",
+  },
+  {
+    question: "What should I do if I am locked out of my home in Mayfair?",
+    answer:
+      "If you are locked out of your home in Mayfair, call Vigdis Locksmith London on +44 7984 547185. Do not attempt to force entry yourself as this can damage your door and lock. Our technician will arrive within 15 minutes, provide a fixed price, and open the door using professional non-destructive entry techniques. We operate 24/7 and cover all Mayfair postcodes — W1J, W1K, and W1S.",
+  },
+  {
+    question: "How much does a locksmith cost in Mayfair?",
+    answer:
+      "Locksmith costs in Mayfair vary by job type and time of day. A standard lockout during the day typically starts from £75–£100. Evening and overnight emergency call-outs are higher. We provide a firm fixed price over the phone before any locksmith is dispatched — no guesswork, no surprises. There is no call-out charge on top.",
   },
 ];
 
@@ -134,6 +165,17 @@ export default function HomePage() {
 
   return (
     <>
+      <SchemaScript schema={getWebPageSchema(
+        BUSINESS.url,
+        "Locksmith Mayfair | Vigdis Locksmith London | 24/7 Emergency",
+        "Expert locksmith in Mayfair, London. 24/7 emergency lockouts, lock repair, replacement & key cutting. ★★★★★ 247 reviews. No call-out fee. Call +44 7984 547185."
+      )} />
+      <SchemaScript schema={getHowToSchema(
+        "How to Get an Emergency Locksmith in Mayfair",
+        "If you are locked out or need a locksmith in Mayfair, follow these steps to get fast professional help from Vigdis Locksmith London.",
+        howToSteps,
+        "PT30M"
+      )} />
       <SchemaScript schema={getFAQSchema(faqs)} />
       <SchemaScript schema={getBreadcrumbSchema(breadcrumbs)} />
       <SchemaScript schema={getServiceItemListSchema()} />
@@ -268,6 +310,48 @@ export default function HomePage() {
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section className="py-20 bg-gray-50" data-speakable>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="section-heading">How to Get a Locksmith in Mayfair</h2>
+            <p className="section-subheading">
+              From your first call to the job being done, most lockouts in Mayfair are resolved in under an hour. Here&apos;s exactly what to expect.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {howToSteps.map((step, i) => (
+              <div key={step.name} className="relative bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                <div className="w-10 h-10 bg-red-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4">
+                  {i + 1}
+                </div>
+                {i < howToSteps.length - 1 && (
+                  <div className="hidden md:block absolute top-11 right-0 translate-x-1/2 w-6 h-0.5 bg-red-200 z-10" />
+                )}
+                <h3 className="font-bold text-gray-900 mb-2 text-sm">{step.name}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{step.text}</p>
+              </div>
+            ))}
+          </div>
+          {/* Pricing transparency row */}
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {[
+              { label: "Standard lockout (daytime)", value: "From £75" },
+              { label: "Emergency lockout (night)", value: "From £100" },
+              { label: "Call-out fee", value: "£0 — None" },
+            ].map((item) => (
+              <div key={item.label} className="flex items-center justify-between bg-white border border-gray-200 rounded-xl px-5 py-4">
+                <span className="text-sm text-gray-600">{item.label}</span>
+                <span className="text-sm font-bold text-gray-900">{item.value}</span>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-xs text-gray-500 mt-3">
+            All prices are fixed and confirmed before work begins. Final price depends on lock type and job complexity.
+          </p>
         </div>
       </section>
 
